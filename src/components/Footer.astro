@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="py-12 px-6 md:px-12" style="border-top: 1px solid #1a1030;">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-center md:text-left">
+
+      <!-- Left: mini logo + copyright -->
+      <div class="flex flex-col items-center md:items-start gap-2">
+        <a href="/" class="flex items-center" aria-label="DevCraft inicio">
+          <img
+            src="/logo.png"
+            alt="DevCraft Pablo"
+            height="28"
+            class="h-7 w-auto object-contain"
+            style="filter: drop-shadow(0 0 6px rgba(20,154,242,0.3));"
+            loading="lazy"
+          />
+        </a>
+        <p class="font-mono-custom text-xs" style="color:#7060a0;">
+          © {year} Pablo Proboste. Todos los derechos reservados.
+        </p>
+      </div>
+
+      <!-- Center: nav + tagline -->
+      <div class="flex flex-col items-center gap-3">
+        <nav class="flex gap-5">
+          <a href="#services" class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Servicios</a>
+          <a href="#about"    class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Sobre mí</a>
+          <a href="#projects" class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Proyectos</a>
+          <a href="#process"  class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Proceso</a>
+          <a href="#contact"  class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Contacto</a>
+        </nav>
+        <p class="serif-display italic text-sm" style="color:#7060a0;">Código con propósito.</p>
+      </div>
+
+      <!-- Right: stack + location -->
+      <div class="flex flex-col items-center md:items-end gap-1">
+        <p class="font-mono-custom text-xs" style="background: linear-gradient(90deg, #5d038c, #3d1495, #2a7de5, #149af2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          Astro · React · Tailwind · Vercel
+        </p>
+        <p class="font-mono-custom text-xs" style="color:#7060a0;">Trelew, Patagonia 🇦🇷</p>
+      </div>
+
+    </div>
+
+  </div>
+</footer>

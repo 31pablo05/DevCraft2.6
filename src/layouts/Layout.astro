@@ -1,0 +1,43 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Pablo Proboste — DevCraft | Desarrollador Web · Patagonia",
+  description = "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 23 proyectos reales. Trelew, Patagonia 🇦🇷"
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://devcraftpablo.online" />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Global CSS -->
+    <style>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body class="bg-bg text-text antialiased">
+    <slot />
+  </body>
+</html>

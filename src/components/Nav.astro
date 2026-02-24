@@ -1,0 +1,241 @@
+---
+---
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12 flex items-center justify-between">
+
+  <!-- Logo -->
+  <a href="/" id="nav-logo-link" class="flex items-center relative z-[60]" aria-label="DevCraft inicio" style="perspective: 400px;">
+    <div id="nav-logo-wrap" style="transform-style: preserve-3d; will-change: transform; display: inline-block;">
+      <img
+        id="nav-logo-img"
+        src="/logo.png"
+        alt="DevCraft Pablo"
+        height="52"
+        class="h-13 w-auto object-contain block"
+        style="filter: drop-shadow(0 0 12px rgba(20,154,242,0.55)) drop-shadow(0 0 28px rgba(93,3,140,0.35));"
+        loading="eager"
+      />
+    </div>
+  </a>
+
+  <!-- Desktop links -->
+  <div class="hidden md:flex items-center gap-8">
+    <a href="#services" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Servicios</a>
+    <a href="#about"    class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Sobre mí</a>
+    <a href="#projects" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Proyectos</a>
+    <a href="#process"  class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Proceso</a>
+    <a href="#contact"  class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Contacto</a>
+    <a
+      href="mailto:devcraft.pablo@gmail.com"
+      class="px-4 py-2 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90"
+      style="background: linear-gradient(90deg, #3d1495, #2a7de5);"
+    >
+      Contratame
+    </a>
+  </div>
+
+  <!-- Hamburger button (mobile only) -->
+  <button
+    id="hamburger-btn"
+    class="md:hidden relative z-[60] flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-lg transition-all duration-300"
+    style="background: rgba(10,6,18,0.8); border: 1px solid #1a1030; backdrop-filter: blur(8px);"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+  >
+    <span id="bar1" class="block w-[18px] h-[2px] rounded-full transition-all duration-300 origin-center" style="background:#feffff;"></span>
+    <span id="bar2" class="block w-[18px] h-[2px] rounded-full transition-all duration-300" style="background:#feffff;"></span>
+    <span id="bar3" class="block w-[18px] h-[2px] rounded-full transition-all duration-300 origin-center" style="background:#feffff;"></span>
+  </button>
+</nav>
+
+<!-- Mobile compact dropdown -->
+<div
+  id="mobile-dropdown"
+  class="fixed z-[55]"
+  style="top: 68px; right: 16px; width: 240px; display: none; opacity: 0; pointer-events: none; transform: translateY(-8px) scale(0.96); transform-origin: top right; transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34,1.4,0.64,1);"
+  aria-hidden="true"
+>
+  <div class="rounded-2xl overflow-hidden" style="background: rgba(10,6,18,0.97); border: 1px solid #1a1030; box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(93,3,140,0.15);">
+    <!-- Top gradient line -->
+    <div class="h-px w-full" style="background: linear-gradient(90deg, #5d038c, #149af2);"></div>
+
+    <!-- Logo mini -->
+    <div class="flex items-center justify-center pt-4 pb-3 px-4" style="border-bottom: 1px solid #1a1030;">
+      <img src="/logo.png" alt="DevCraft" class="h-8 w-auto object-contain"
+           style="filter: drop-shadow(0 0 8px rgba(20,154,242,0.5));" />
+    </div>
+
+    <!-- Links -->
+    <div class="flex flex-col py-2">
+      <a href="#services" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">01</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Servicios</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
+      <a href="#about" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">02</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Sobre mí</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
+      <a href="#projects" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">03</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Proyectos</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
+      <a href="#process" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">04</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Proceso</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
+      <a href="#contact" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">05</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Contacto</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
+    </div>
+
+    <!-- CTA -->
+    <div class="px-4 pb-4 pt-2">
+      <a
+        href="mailto:devcraft.pablo@gmail.com"
+        class="mob-link flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-medium text-text transition-all duration-200 hover:opacity-90"
+        style="background: linear-gradient(90deg, #3d1495, #2a7de5);"
+      >
+        📬 Contratame
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes logoFlipIn {
+    0%   { opacity: 0; transform: rotateY(-90deg) scale(0.7); }
+    60%  { transform: rotateY(12deg) scale(1.05); }
+    80%  { transform: rotateY(-4deg) scale(0.98); }
+    100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+  }
+  @keyframes logoPulseGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px rgba(20,154,242,0.5)) drop-shadow(0 0 24px rgba(93,3,140,0.3));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(20,154,242,0.9)) drop-shadow(0 0 44px rgba(93,3,140,0.6));
+    }
+  }
+  #nav-logo-wrap { animation: logoFlipIn 0.9s cubic-bezier(0.34,1.56,0.64,1) both; }
+  #nav-logo-img  { animation: logoPulseGlow 3s ease-in-out infinite; }
+  #nav-logo-link:hover #nav-logo-img { animation: logoPulseGlow 0.8s ease-in-out infinite; }
+
+  /* hamburger → X */
+  #hamburger-btn.open #bar1 { transform: translateY(7px) rotate(45deg); background: #149af2; }
+  #hamburger-btn.open #bar2 { opacity: 0; transform: scaleX(0); }
+  #hamburger-btn.open #bar3 { transform: translateY(-7px) rotate(-45deg); background: #149af2; }
+
+  /* link hover bg */
+  .mob-link:hover { background: rgba(44,4,95,0.25); }
+</style>
+
+<script>
+  /* ── Smooth scroll with nav offset ── */
+  function scrollToSection(hash: string) {
+    const target = document.querySelector(hash) as HTMLElement | null;
+    if (!target) return;
+    const navH = (document.getElementById('main-nav')?.offsetHeight ?? 72) + 8;
+    const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.nav-anchor, .mob-link').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const href = (el as HTMLAnchorElement).getAttribute('href') ?? '';
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        scrollToSection(href);
+      }
+    });
+  });
+
+  /* ── Nav scroll state ── */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav?.classList.add('scrolled');
+    else nav?.classList.remove('scrolled');
+  }, { passive: true });
+
+  /* ── Hamburger dropdown ── */
+  const btn      = document.getElementById('hamburger-btn');
+  const dropdown = document.getElementById('mobile-dropdown');
+  let isOpen     = false;
+
+  function openMenu() {
+    isOpen = true;
+    btn?.classList.add('open');
+    btn?.setAttribute('aria-expanded', 'true');
+    if (dropdown) {
+      dropdown.style.display  = 'block';
+      dropdown.style.pointerEvents = 'auto';
+      dropdown.setAttribute('aria-hidden', 'false');
+      // force reflow so transition fires
+      dropdown.getBoundingClientRect();
+      dropdown.style.opacity   = '1';
+      dropdown.style.transform = 'translateY(0) scale(1)';
+    }
+  }
+  function closeMenu() {
+    isOpen = false;
+    btn?.classList.remove('open');
+    btn?.setAttribute('aria-expanded', 'false');
+    if (dropdown) {
+      dropdown.style.opacity   = '0';
+      dropdown.style.transform = 'translateY(-8px) scale(0.96)';
+      dropdown.style.pointerEvents = 'none';
+      dropdown.setAttribute('aria-hidden', 'true');
+      setTimeout(() => {
+        if (!isOpen) dropdown.style.display = 'none';
+      }, 240);
+    }
+  }
+
+  btn?.addEventListener('click', (e) => { e.stopPropagation(); isOpen ? closeMenu() : openMenu(); });
+
+  /* close on outside click */
+  document.addEventListener('click', (e) => {
+    if (isOpen && !dropdown?.contains(e.target as Node) && e.target !== btn) closeMenu();
+  });
+
+  /* close after link click */
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => setTimeout(closeMenu, 300));
+  });
+
+  /* close on Escape */
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  /* ── Logo 3D tilt ── */
+  const logoLink = document.getElementById('nav-logo-link');
+  const logoWrap = document.getElementById('nav-logo-wrap');
+
+  if (logoLink && logoWrap) {
+    logoLink.addEventListener('mousemove', (e: Event) => {
+      const ev   = e as MouseEvent;
+      const rect = logoLink.getBoundingClientRect();
+      const dx   = (ev.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+      const dy   = (ev.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
+      logoWrap.style.transform = `rotateX(${-dy*22}deg) rotateY(${dx*28}deg) rotateZ(${dx*4}deg) scale(1.12)`;
+    });
+    logoLink.addEventListener('mouseleave', () => {
+      logoWrap.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+      logoWrap.style.transform  = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
+      setTimeout(() => { logoWrap.style.transition = ''; }, 500);
+    });
+    logoLink.addEventListener('click', (e) => {
+      if (window.innerWidth < 768) return;
+      e.preventDefault();
+      logoWrap.style.transition = 'transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+      logoWrap.style.transform  = 'rotateY(360deg) scale(1.15)';
+      setTimeout(() => {
+        logoWrap.style.transform = 'rotateY(0deg) scale(1)';
+        setTimeout(() => { logoWrap.style.transition = ''; window.scrollTo({ top: 0, behavior: 'smooth' }); }, 150);
+      }, 600);
+    });
+  }
+</script>

@@ -1,0 +1,91 @@
+---
+---
+<section id="contact" class="relative py-36 px-6 md:px-12 overflow-hidden">
+
+  <!-- Video background -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+    style="opacity: 0.18;"
+  >
+    <source src="/videos/vid1.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark overlay + vignette -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.82) 100%);">
+  </div>
+
+  <!-- Extra deep glow on top -->
+  <div class="absolute inset-0 pointer-events-none flex items-center justify-center" aria-hidden="true">
+    <div class="w-[500px] h-[500px] rounded-full"
+         style="background: radial-gradient(circle, rgba(44,4,95,0.25) 0%, transparent 70%); filter: blur(80px);">
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-2xl mx-auto text-center reveal">
+    <!-- Eyebrow -->
+    <p class="font-mono-custom text-xs text-muted uppercase tracking-widest mb-6">// hablemos</p>
+
+    <!-- Heading -->
+    <h2 class="serif-display text-3xl md:text-5xl font-normal text-text mb-4 leading-tight">
+      ¿Tenés un proyecto<br />
+      <em class="grad-text not-italic">en mente?</em>
+    </h2>
+
+    <!-- Sub -->
+    <p class="text-muted text-base leading-relaxed mb-10 max-w-md mx-auto">
+      Desde una landing hasta una app completa, construimos tu presencia digital con calidad y compromiso real.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <a
+        href="mailto:devcraft.pablo@gmail.com"
+        class="px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+        style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
+      >
+        📬 Escribirme por mail
+      </a>
+      <a
+        href="https://wa.me/5492804000000"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent hover:-translate-y-0.5"
+        style="border: 1px solid #1a1030;"
+      >
+        💬 WhatsApp
+      </a>
+    </div>
+
+    <!-- Contact links -->
+    <div class="flex flex-wrap gap-6 justify-center">
+      <a
+        href="https://github.com/31pablo05"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200"
+      >
+        GitHub / 31pablo05
+      </a>
+      <a
+        href="https://linkedin.com/in/pablo-proboste"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://devcraftpablo.online"
+        class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200"
+      >
+        devcraftpablo.online
+      </a>
+    </div>
+  </div>
+</section>

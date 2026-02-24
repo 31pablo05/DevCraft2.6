@@ -1,0 +1,104 @@
+---
+import Layout    from '../layouts/Layout.astro';
+import Nav       from '../components/Nav.astro';
+import Hero      from '../components/Hero.astro';
+import Marquee   from '../components/Marquee.astro';
+import Services  from '../components/Services.astro';
+import About     from '../components/About.astro';
+import Stack     from '../components/Stack.astro';
+import Projects  from '../components/Projects.astro';
+import Process   from '../components/Process.astro';
+import CTA       from '../components/CTA.astro';
+import Footer    from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <Nav />
+  <main>
+    <Hero />
+    <Marquee />
+    <Services />
+    <About />
+    <Stack />
+    <Projects />
+    <Process />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  /* ─── Custom Cursor ─────────────────────────────────── */
+  const cursor     = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursor-ring');
+
+  let mouseX = 0, mouseY = 0;
+  let ringX  = 0, ringY  = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (cursor) {
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
+    }
+  }, { passive: true });
+
+  // Lerp ring toward cursor
+  function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+  function animateRing() {
+    ringX = lerp(ringX, mouseX, 0.12);
+    ringY = lerp(ringY, mouseY, 0.12);
+    if (cursorRing) {
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top  = ringY + 'px';
+    }
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect
+  const hoverTargets = document.querySelectorAll('a, button, .pcard, .service-card, .process-step, .stack-item');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor?.classList.add('hovering');
+      cursorRing?.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor?.classList.remove('hovering');
+      cursorRing?.classList.remove('hovering');
+    });
+  });
+
+  /* ─── Scroll Reveal ─────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer  = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ─── Global anchor smooth-scroll with nav offset ────── */
+  document.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
+    if (!target) return;
+    const hash = target.getAttribute('href');
+    if (!hash || hash === '#') return;
+    const section = document.querySelector(hash) as HTMLElement | null;
+    if (!section) return;
+    e.preventDefault();
+    const navHeight = (document.getElementById('main-nav')?.offsetHeight ?? 72) + 8;
+    const top = section.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+</script>

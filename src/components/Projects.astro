@@ -1,0 +1,101 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+
+const categories = [
+  { key: 'all',        label: 'Todos' },
+  { key: 'ecommerce',  label: 'E-commerce' },
+  { key: 'health',     label: 'Salud' },
+  { key: 'food',       label: 'Food' },
+  { key: 'portfolio',  label: 'Portfolio' },
+  { key: 'tools',      label: 'Herramientas' },
+  { key: 'beauty',     label: 'Belleza' },
+  { key: 'educacion',  label: 'Educación' },
+  { key: 'coaching',   label: 'Coaching' },
+  { key: 'retail',     label: 'Retail' },
+  { key: 'automotive', label: 'Automóvil' },
+  { key: 'otros',      label: 'Otros' },
+];
+---
+
+<section id="projects" class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-12 reveal">
+      <p class="font-mono-custom text-xs text-muted uppercase tracking-widest mb-3">// proyectos reales</p>
+      <h2 class="serif-display text-3xl md:text-5xl text-text font-normal mb-2">
+        23 proyectos <em class="grad-text not-italic">construidos</em>
+      </h2>
+      <p id="project-counter" class="font-mono-custom text-xs text-muted">Mostrando {projects.length} proyectos</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap gap-2 mb-10 reveal">
+      {categories.map(cat => (
+        <button
+          class="filter-btn font-mono-custom text-xs px-3 py-1.5 rounded-md transition-all duration-200 hover:text-text"
+          data-category={cat.key}
+          style={cat.key === 'all' ? 'background: linear-gradient(90deg, #3d1495, #2a7de5); color:#feffff; border: 1px solid transparent;' : 'background: transparent; color:#7060a0; border: 1px solid #1a1030;'}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Projects grid -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background:#1a1030;">
+      {projects.map(project => (
+        <div
+          class="project-item bg-bg"
+          data-category={project.category}
+          data-featured={project.featured ? 'true' : 'false'}
+        >
+          <ProjectCard project={project} />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (() => {
+    const btns    = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const items   = document.querySelectorAll<HTMLElement>('.project-item');
+    const counter = document.getElementById('project-counter');
+
+    function updateCounter(visible: number) {
+      if (counter) counter.textContent = `Mostrando ${visible} proyecto${visible !== 1 ? 's' : ''}`;
+    }
+
+    function setActive(btn: HTMLButtonElement) {
+      btns.forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = '#7060a0';
+        b.style.borderColor = '#1a1030';
+      });
+      btn.style.background = 'linear-gradient(90deg, #3d1495, #2a7de5)';
+      btn.style.color = '#feffff';
+      btn.style.borderColor = 'transparent';
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category ?? 'all';
+        setActive(btn);
+        let count = 0;
+        items.forEach(item => {
+          const show = cat === 'all' || item.dataset.category === cat;
+          if (show) {
+            item.style.display = 'block';
+            count++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        updateCounter(count);
+      });
+    });
+  })();
+</script>

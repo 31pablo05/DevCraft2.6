@@ -1,0 +1,246 @@
+---
+const skills = [
+  { name: "HTML5",            pct: 95, desc: "Estructura semántica moderna" },
+  { name: "CSS3",             pct: 90, desc: "Diseño avanzado y animaciones" },
+  { name: "React",            pct: 88, desc: "Componentes y hooks avanzados" },
+  { name: "Tailwind CSS",     pct: 92, desc: "Utility-first CSS framework" },
+  { name: "JavaScript",       pct: 87, desc: "ES6+, async, DOM" },
+  { name: "Responsive Design",pct: 90, desc: "Diseños adaptativos perfectos" },
+];
+
+const tools = [
+  { name: "Git",     pct: 85 },
+  { name: "VS Code", pct: 95 },
+  { name: "GitHub",  pct: 80 },
+  { name: "Vercel",  pct: 75 },
+  { name: "Node.js", pct: 70 },
+  { name: "MongoDB", pct: 65 },
+];
+
+const stackBadges = [
+  "Astro", "Vite", "Bootstrap", "Framer Motion", "Electron", "Helmet", "TypeScript"
+];
+
+const designBadges = ["Canva Pro — Edición de imágenes & video", "GitHub Copilot", "Figma"];
+
+const certs = [
+  { name: "Responsive Web Design",             org: "freeCodeCamp", date: "may. 2024" },
+  { name: "Advanced React",                     org: "Meta",         date: "abr. 2024" },
+  { name: "IBM Front-End Developer Specialization", org: "IBM",      date: "ene. 2024" },
+];
+
+const stats = [
+  { value: "23+",  label: "Proyectos" },
+  { value: "500+", label: "Horas de código" },
+  { value: "10+",  label: "Clientes" },
+  { value: "3+",   label: "Años de pasión" },
+];
+---
+
+<section id="about" class="py-24 px-6 md:px-12 overflow-hidden" style="background: #0a0612;">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <p class="font-mono-custom text-xs text-muted uppercase tracking-widest mb-3">// sobre mí</p>
+      <h2 class="serif-display text-3xl md:text-5xl text-text font-normal">
+        Transformando ideas en <em class="grad-text not-italic">experiencias digitales</em>
+      </h2>
+    </div>
+
+    <!-- Bio grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 reveal">
+
+      <!-- Photo -->
+      <div class="flex justify-center md:justify-start">
+        <div class="relative">
+          <!-- glow -->
+          <div class="absolute inset-0 rounded-2xl pointer-events-none"
+               style="background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(93,3,140,0.4) 0%, rgba(20,154,242,0.1) 60%, transparent 100%); filter: blur(32px); transform: scale(1.1);"
+               aria-hidden="true"></div>
+          <!-- border -->
+          <div class="relative rounded-2xl p-px"
+               style="background: linear-gradient(135deg, #5d038c 0%, #3d1495 45%, #149af2 100%);">
+            <div class="rounded-2xl overflow-hidden" style="background: #0a0612;">
+              <img
+                src="/pablo-proboste2.png"
+                alt="Pablo Proboste — DevCraft"
+                width="400"
+                height="480"
+                class="block w-full max-w-xs md:max-w-sm object-cover object-top"
+                style="aspect-ratio: 5/6;"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <!-- quote chip -->
+          <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full text-center w-max max-w-xs"
+               style="background: rgba(10,6,18,0.92); border: 1px solid #1a1030; backdrop-filter: blur(12px);">
+            <p class="serif-display italic text-xs" style="color:#149af2;">"Código con propósito."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="flex flex-col gap-6">
+        <div>
+          <h3 class="serif-display text-2xl md:text-3xl font-normal text-text mb-1">Pablo Proboste</h3>
+          <p class="font-mono-custom text-xs" style="color:#149af2;">Desarrollador Frontend · Trelew, Patagonia 🇦🇷</p>
+        </div>
+
+        <p class="text-muted text-base leading-relaxed">
+          Soy un desarrollador frontend apasionado con más de 3 años de experiencia creando
+          interfaces web modernas y funcionales. Mi enfoque se centra en escribir código limpio,
+          crear experiencias de usuario excepcionales y mantenerme actualizado con las últimas
+          tendencias del desarrollo web.
+        </p>
+        <p class="text-muted text-base leading-relaxed">
+          Disfruto transformando diseños complejos en aplicaciones web intuitivas, eficientes y
+          visualmente impactantes que generan resultados reales para cada cliente.
+        </p>
+
+        <!-- Quote -->
+        <blockquote class="border-l-2 pl-4 italic serif-display text-sm"
+                    style="border-color:#5d038c; color:#7060a0;">
+          "La programación no es solo escribir código, es crear experiencias que conecten con
+          las personas y resuelvan problemas reales."
+        </blockquote>
+
+        <!-- Stats mini -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          {stats.map(s => (
+            <div class="rounded-lg p-3 text-center" style="background:#000; border:1px solid #1a1030;">
+              <p class="serif-display text-xl grad-text-accent leading-none mb-0.5">{s.value}</p>
+              <p class="font-mono-custom text-xs" style="color:#7060a0;">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills title -->
+    <div class="mb-10 reveal">
+      <p class="font-mono-custom text-xs text-muted uppercase tracking-widest mb-2">// stack tecnológico</p>
+      <h3 class="serif-display text-2xl md:text-3xl font-normal text-text">
+        Habilidades <em class="grad-text not-italic">&amp;</em> Experiencias
+      </h3>
+      <p class="text-muted text-sm mt-2">Tecnologías de vanguardia para crear experiencias web excepcionales y escalables.</p>
+    </div>
+
+    <!-- Two column skills -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 reveal">
+
+      <!-- Main skills -->
+      <div>
+        <p class="font-mono-custom text-xs uppercase tracking-widest mb-6" style="color:#149af2;">Habilidades Principales</p>
+        <div class="flex flex-col gap-5">
+          {skills.map(sk => (
+            <div>
+              <div class="flex justify-between items-baseline mb-1.5">
+                <div>
+                  <span class="text-sm font-medium text-text">{sk.name}</span>
+                  <span class="font-mono-custom text-xs ml-2" style="color:#7060a0;">{sk.desc}</span>
+                </div>
+                <span class="font-mono-custom text-xs" style="color:#149af2;">{sk.pct}%</span>
+              </div>
+              <div class="w-full rounded-full" style="height:3px; background:#1a1030;">
+                <div
+                  class="progress-bar rounded-full"
+                  style={`width:${sk.pct}%;`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div>
+        <p class="font-mono-custom text-xs uppercase tracking-widest mb-6" style="color:#149af2;">Herramientas &amp; Plataformas</p>
+        <div class="flex flex-col gap-5">
+          {tools.map(t => (
+            <div>
+              <div class="flex justify-between items-baseline mb-1.5">
+                <span class="text-sm font-medium text-text">{t.name}</span>
+                <span class="font-mono-custom text-xs" style="color:#149af2;">{t.pct}%</span>
+              </div>
+              <div class="w-full rounded-full" style="height:3px; background:#1a1030;">
+                <div
+                  class="progress-bar rounded-full"
+                  style={`width:${t.pct}%;`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Stack badges + Design badges -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16 reveal">
+      <div>
+        <p class="font-mono-custom text-xs uppercase tracking-widest mb-4" style="color:#149af2;">Stack Completo</p>
+        <div class="flex flex-wrap gap-2">
+          {stackBadges.map(b => (
+            <span class="font-mono-custom text-xs px-3 py-1.5 rounded-md"
+                  style="background: rgba(44,4,95,0.45); color:#feffff; border:1px solid #1a1030;">
+              {b}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="font-mono-custom text-xs uppercase tracking-widest mb-4" style="color:#149af2;">Herramientas de Diseño</p>
+        <div class="flex flex-wrap gap-2">
+          {designBadges.map(b => (
+            <span class="font-mono-custom text-xs px-3 py-1.5 rounded-md"
+                  style="background: rgba(61,20,149,0.3); color:#feffff; border:1px solid #1a1030;">
+              {b}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="reveal">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <div>
+          <p class="font-mono-custom text-xs uppercase tracking-widest mb-1" style="color:#149af2;">// certificaciones</p>
+          <h3 class="serif-display text-xl font-normal text-text">
+            21+ certificaciones de instituciones líderes
+          </h3>
+        </div>
+        <a
+          href="https://linkedin.com/in/pablo-proboste"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono-custom text-xs transition-colors duration-200 hover:text-text"
+          style="color:#7060a0; border:1px solid #1a1030; padding: 6px 14px; border-radius:6px;"
+        >
+          Ver todas (21) →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {certs.map(c => (
+          <div class="rounded-xl p-5 flex flex-col gap-3 transition-all duration-200 hover:border-indigo"
+               style="background:#000; border:1px solid #1a1030;">
+            <div class="flex items-start justify-between gap-2">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                   style="background: linear-gradient(135deg,#3d1495,#149af2);">
+                <span class="text-xs">🏅</span>
+              </div>
+              <span class="font-mono-custom text-xs" style="color:#7060a0;">{c.date}</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-text leading-snug mb-0.5">{c.name}</p>
+              <p class="font-mono-custom text-xs" style="color:#149af2;">{c.org}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

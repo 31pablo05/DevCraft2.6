@@ -1,0 +1,33 @@
+---
+const stack = [
+  { icon: "🚀", name: "Astro" },
+  { icon: "⚛️", name: "React" },
+  { icon: "🎨", name: "Tailwind" },
+  { icon: "⚡", name: "Vite" },
+  { icon: "▲", name: "Vercel" },
+  { icon: "✦", name: "CSS/Anims" }
+];
+---
+<section class="py-20 px-6 md:px-12" style="background: #0a0612;">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-12 reveal">
+      <p class="font-mono-custom text-xs text-muted uppercase tracking-widest mb-3">// stack tecnológico</p>
+      <h2 class="serif-display text-3xl md:text-5xl text-text font-normal">
+        Las <em class="grad-text not-italic">herramientas</em>
+      </h2>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-px reveal" style="background:#1a1030;">
+      {stack.map(item => (
+        <div class="stack-item p-6 flex flex-col items-center gap-3 bg-surface cursor-default">
+          <span class="text-2xl leading-none">{item.icon}</span>
+          <span class="font-mono-custom text-xs text-muted">{item.name}</span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

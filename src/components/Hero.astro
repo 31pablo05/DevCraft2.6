@@ -1,0 +1,99 @@
+---
+const stats = [
+  { value: "23",   label: "Proyectos"  },
+  { value: "3+",   label: "Años"       },
+  { value: "100%", label: "Compromiso" }
+];
+
+const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
+<span style="color:#5d038c">const</span> <span style="color:#feffff">dev</span> <span style="color:#149af2">=</span> &#123;
+  <span style="color:#2a7de5">name</span>: <span style="color:#149af2">"Pablo Proboste"</span>,
+  <span style="color:#2a7de5">role</span>: <span style="color:#149af2">"Frontend Developer"</span>,
+  <span style="color:#2a7de5">location</span>: <span style="color:#149af2">"Trelew, Patagonia &#x1F1E6;&#x1F1F7;"</span>,
+  <span style="color:#2a7de5">stack</span>: [<span style="color:#149af2">"Astro"</span>, <span style="color:#149af2">"React"</span>, <span style="color:#149af2">"Tailwind"</span>],
+  <span style="color:#2a7de5">projects</span>: <span style="color:#5d038c">23</span>,
+  <span style="color:#2a7de5">available</span>: <span style="color:#149af2">true</span>
+&#125;;`;
+---
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center pt-24 pb-20 px-6 md:px-12 overflow-hidden"
+  style="background: radial-gradient(ellipse 80% 60% at 10% 50%, rgba(44,4,95,0.35) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 90% 20%, rgba(93,3,140,0.2) 0%, transparent 55%), #000;"
+>
+  <!-- Grid background -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="background-image: linear-gradient(rgba(20,154,242,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(20,154,242,0.035) 1px, transparent 1px); background-size: 60px 60px;">
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left column -->
+    <div class="reveal">
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2 h-2 rounded-full bg-accent flex-shrink-0" style="animation: pulse 1.2s ease infinite;"></span>
+        <span class="font-mono-custom text-xs text-muted uppercase tracking-widest">Disponible para proyectos</span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="serif-display font-normal leading-tight mb-4">
+        <span class="block text-5xl md:text-7xl text-text">Pablo</span>
+        <span class="block text-5xl md:text-7xl grad-text">Proboste</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="serif-display text-lg md:text-xl italic mb-4" style="color: #149af2;">
+        Desarrollador Web &amp; Creador Digital
+      </p>
+
+      <!-- Description -->
+      <p class="text-muted text-base md:text-lg max-w-md leading-relaxed mb-8">
+        Construyo sitios web reales para negocios reales. Desde Patagonia para el mundo.
+        23 proyectos lanzados, 3+ años de experiencia, compromiso total.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#projects"
+          class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
+        >
+          Ver proyectos →
+        </a>
+        <a
+          href="mailto:devcraft.pablo@gmail.com"
+          class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent"
+          style="border: 1px solid #1a1030;"
+        >
+          Escribirme
+        </a>
+      </div>
+    </div>
+
+    <!-- Right column: code card + stats -->
+    <div class="reveal flex flex-col gap-6" style="animation-delay: .15s;">
+      <!-- Code block card -->
+      <div class="rounded-xl p-5 font-mono-custom text-xs leading-relaxed"
+           style="background: #0a0612; border: 1px solid #1a1030;">
+        <div class="flex gap-1.5 mb-4">
+          <span class="w-3 h-3 rounded-full" style="background:#5d038c;"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#3d1495;"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#149af2;"></span>
+        </div>
+        <pre class="text-left whitespace-pre overflow-x-auto"><code set:html={codeHtml} /></pre>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-4">
+        {stats.map(stat => (
+          <div class="rounded-lg p-4 text-center" style="background:#0a0612; border:1px solid #1a1030;">
+            <p class="serif-display text-2xl md:text-3xl grad-text-accent leading-none mb-1">{stat.value}</p>
+            <p class="font-mono-custom text-xs" style="color:#7060a0;">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
