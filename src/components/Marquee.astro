@@ -3,14 +3,31 @@ const items = [
   "Astro", "React Islands", "Tailwind CSS", "Vite", "Vercel",
   "Canva Pro", "Gestión de RRSS", "JavaScript", "CSS Animations", "Branding Digital"
 ];
+const doubled = [...items, ...items];
 ---
-<div class="relative w-full overflow-hidden py-4" style="border-top: 1px solid #1a1030; border-bottom: 1px solid #1a1030; background: #0a0612;">
+<div
+  aria-hidden="true"
+  class="relative w-full overflow-hidden py-4"
+  style="border-top: 1px solid #1a1030; border-bottom: 1px solid #1a1030; background: #0a0612; mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);"
+>
   <div class="marquee-track">
-    {[...items, ...items].map((item) => (
+    {doubled.map((item, i) => (
       <div class="flex items-center gap-4 px-4 flex-shrink-0">
-        <span class="font-mono-custom text-xs uppercase tracking-widest whitespace-nowrap" style="color:#7060a0;">{item}</span>
-        <span class="w-1 h-1 rounded-full flex-shrink-0" style="background: linear-gradient(135deg, #5d038c, #149af2);"></span>
+        {i % 2 === 0
+          ? <span class="grad-text font-mono-custom text-xs uppercase tracking-widest whitespace-nowrap">{item}</span>
+          : <span class="font-mono-custom text-xs uppercase tracking-widest whitespace-nowrap" style="color:#7060a0;">{item}</span>
+        }
+        <span class="serif-display flex-shrink-0" style="color:#3d1495; font-size:1rem; line-height:1;">·</span>
       </div>
     ))}
   </div>
 </div>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      transform: none;
+    }
+  }
+</style>

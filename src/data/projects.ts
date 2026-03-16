@@ -13,6 +13,7 @@ export interface Project {
   clientType: string;
   video?: string;
   poster?: string;
+  posterSrc?: string;
 }
 
 export const projects: Project[] = [

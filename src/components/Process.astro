@@ -34,10 +34,19 @@ const steps = [
     </div>
 
     <!-- Steps grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-px reveal" style="background:#1a1030;">
-      {steps.map(step => (
-        <div class="process-step bg-surface p-8 group cursor-default transition-all duration-300">
-          <!-- Number -->
+    <div class="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px reveal" style="background:#1a1030;">
+      <!-- Connector line (desktop only) -->
+      <div
+        class="hidden md:block absolute pointer-events-none"
+        style="top: 72px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, #3d1495, #149af2); opacity: 0.35; z-index: 1;"
+        aria-hidden="true"
+      ></div>
+
+      {steps.map((step, i) => (
+        <div class="process-step relative bg-surface p-8 group cursor-default">
+          <!-- Small mono number above the big one -->
+          <p class="font-mono-custom text-xs mb-1 select-none" style="color:#3d1495;">{step.num}</p>
+          <!-- Big number -->
           <p
             class="serif-display italic font-normal leading-none mb-4 select-none transition-all duration-300"
             style="font-size: 4rem; color: #1a1030;"
@@ -45,11 +54,19 @@ const steps = [
             {step.num}
           </p>
           <!-- Title -->
-          <h3 class="serif-display text-lg font-normal text-text mb-3 group-hover:grad-text transition-all">
+          <h3 class="serif-display text-lg font-normal text-text mb-3 transition-all">
             {step.title}
           </h3>
           <!-- Description -->
           <p class="text-sm text-muted leading-relaxed">{step.description}</p>
+          <!-- Arrow connector (first 3 steps, desktop only) -->
+          {i < 3 && (
+            <span
+              class="hidden md:block absolute font-mono-custom text-xs select-none"
+              style="color:#3d1495; right: -6px; top: 50%; transform: translateY(-50%); z-index: 2;"
+              aria-hidden="true"
+            >→</span>
+          )}
         </div>
       ))}
     </div>
@@ -58,6 +75,14 @@ const steps = [
 </section>
 
 <style>
+  .process-step {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .process-step:hover {
+    transform: translateY(-4px) rotateX(2deg);
+    background: #0a0612;
+  }
   .process-step:hover .serif-display.italic {
     background: linear-gradient(135deg, #5d038c, #3d1495, #149af2);
     -webkit-background-clip: text;

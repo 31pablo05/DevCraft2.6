@@ -43,47 +43,49 @@ import '../styles/global.css';
     history.replaceState(null, '', window.location.pathname);
   }
 
-  /* ─── Custom Cursor ─────────────────────────────────── */
-  const cursor     = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursor-ring');
+  /* ─── Custom Cursor (pointer devices only) ─────────── */
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor     = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursor-ring');
 
-  let mouseX = 0, mouseY = 0;
-  let ringX  = 0, ringY  = 0;
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
 
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (cursor) {
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top  = mouseY + 'px';
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (cursor) {
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top  = mouseY + 'px';
+      }
+    }, { passive: true });
+
+    // Lerp ring toward cursor
+    function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+    function animateRing() {
+      ringX = lerp(ringX, mouseX, 0.12);
+      ringY = lerp(ringY, mouseY, 0.12);
+      if (cursorRing) {
+        cursorRing.style.left = ringX + 'px';
+        cursorRing.style.top  = ringY + 'px';
+      }
+      requestAnimationFrame(animateRing);
     }
-  }, { passive: true });
+    animateRing();
 
-  // Lerp ring toward cursor
-  function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
-  function animateRing() {
-    ringX = lerp(ringX, mouseX, 0.12);
-    ringY = lerp(ringY, mouseY, 0.12);
-    if (cursorRing) {
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top  = ringY + 'px';
-    }
-    requestAnimationFrame(animateRing);
+    // Hover effect
+    const hoverTargets = document.querySelectorAll('a, button, .pcard, .service-card, .process-step, .stack-item');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor?.classList.add('hovering');
+        cursorRing?.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor?.classList.remove('hovering');
+        cursorRing?.classList.remove('hovering');
+      });
+    });
   }
-  animateRing();
-
-  // Hover effect
-  const hoverTargets = document.querySelectorAll('a, button, .pcard, .service-card, .process-step, .stack-item');
-  hoverTargets.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor?.classList.add('hovering');
-      cursorRing?.classList.add('hovering');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor?.classList.remove('hovering');
-      cursorRing?.classList.remove('hovering');
-    });
-  });
 
   /* ─── Scroll Reveal ─────────────────────────────────── */
   const revealEls = document.querySelectorAll('.reveal');

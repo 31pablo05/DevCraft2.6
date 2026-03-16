@@ -53,7 +53,7 @@ const stats = [
 
       <!-- Photo -->
       <div class="flex justify-center md:justify-start">
-        <div class="relative">
+        <div id="about-photo-card" class="relative mx-auto md:mx-0" style="max-width:280px; width:100%; transition: transform 0.1s ease;">
           <!-- glow -->
           <div class="absolute inset-0 rounded-2xl pointer-events-none"
                style="background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(93,3,140,0.4) 0%, rgba(20,154,242,0.1) 60%, transparent 100%); filter: blur(32px); transform: scale(1.1);"
@@ -61,6 +61,9 @@ const stats = [
           <!-- border -->
           <div class="relative rounded-2xl p-px"
                style="background: linear-gradient(135deg, #5d038c 0%, #3d1495 45%, #149af2 100%);">
+            <!-- Spotlight overlay -->
+            <div id="about-spotlight" class="absolute inset-0 rounded-2xl pointer-events-none" aria-hidden="true"
+                 style="background: radial-gradient(circle at 50% 50%, rgba(20,154,242,0.15), transparent 60%); opacity:0; transition: opacity 0.2s ease; z-index:2;"></div>
             <div class="rounded-2xl overflow-hidden" style="background: #0a0612;">
               <img
                 src="/pablo-proboste2.png"
@@ -100,7 +103,7 @@ const stats = [
         </p>
 
         <!-- Quote -->
-        <blockquote class="border-l-2 pl-4 italic serif-display text-sm"
+        <blockquote class="border-l-2 pl-4 italic serif-display text-xs sm:text-sm"
                     style="border-color:#5d038c; color:#7060a0;">
           "La programación no es solo escribir código, es crear experiencias que conecten con
           las personas y resuelvan problemas reales."
@@ -145,8 +148,9 @@ const stats = [
               </div>
               <div class="w-full rounded-full" style="height:3px; background:#1a1030;">
                 <div
-                  class="progress-bar rounded-full"
-                  style={`width:${sk.pct}%;`}
+                  class="progress-bar rounded-full skill-bar"
+                  style="width:0%;"
+                  data-pct={sk.pct}
                 ></div>
               </div>
             </div>
@@ -166,8 +170,9 @@ const stats = [
               </div>
               <div class="w-full rounded-full" style="height:3px; background:#1a1030;">
                 <div
-                  class="progress-bar rounded-full"
-                  style={`width:${t.pct}%;`}
+                  class="progress-bar rounded-full skill-bar"
+                  style="width:0%;"
+                  data-pct={t.pct}
                 ></div>
               </div>
             </div>
@@ -224,12 +229,12 @@ const stats = [
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {certs.map(c => (
-          <div class="rounded-xl p-5 flex flex-col gap-3 transition-all duration-200 hover:border-indigo"
-               style="background:#000; border:1px solid #1a1030;">
+          <div class="cert-card rounded-xl p-5 flex flex-col gap-3"
+               style="background:#000; border:1px solid #1a1030; transition: border-color 0.3s ease, transform 0.3s ease;">
             <div class="flex items-start justify-between gap-2">
               <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                    style="background: linear-gradient(135deg,#3d1495,#149af2);">
-                <span class="text-xs">🏅</span>
+                <span class="cert-emoji text-xs" style="display:inline-block; transition: transform 0.3s ease;">🏅</span>
               </div>
               <span class="font-mono-custom text-xs" style="color:#7060a0;">{c.date}</span>
             </div>
@@ -244,3 +249,72 @@ const stats = [
 
   </div>
 </section>
+
+<script>
+  /* ─── Photo 3D tilt + spotlight ──────────────────────── */
+  const photoCard = document.getElementById('about-photo-card') as HTMLElement | null;
+  const spotlight = document.getElementById('about-spotlight') as HTMLElement | null;
+
+  if (photoCard) {
+    if (window.matchMedia('(pointer: fine)').matches) {
+      photoCard.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = photoCard.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const rotY =  dx * 8;
+        const rotX = -dy * 8;
+        photoCard.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+        if (spotlight) {
+          const px = ((e.clientX - rect.left) / rect.width) * 100;
+          const py = ((e.clientY - rect.top)  / rect.height) * 100;
+          spotlight.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(20,154,242,0.15), transparent 60%)`;
+          spotlight.style.opacity = '1';
+        }
+      });
+
+      photoCard.addEventListener('mouseleave', () => {
+        photoCard.style.transition = 'transform 0.5s ease';
+        photoCard.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)';
+        if (spotlight) spotlight.style.opacity = '0';
+      });
+
+      photoCard.addEventListener('mouseenter', () => {
+        photoCard.style.transition = 'transform 0.1s ease';
+      });
+    }
+  }
+
+  /* ─── Cert card hover ────────────────────────────────── */
+  document.querySelectorAll<HTMLElement>('.cert-card').forEach(card => {
+    const emoji = card.querySelector<HTMLElement>('.cert-emoji');
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = '#3d1495';
+      card.style.transform = 'scale(1.02)';
+      if (emoji) emoji.style.transform = 'rotate(10deg)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = '#1a1030';
+      card.style.transform = 'scale(1)';
+      if (emoji) emoji.style.transform = 'rotate(0deg)';
+    });
+  });
+
+  /* ─── Skill bars IntersectionObserver ───────────────── */
+  const bars = document.querySelectorAll<HTMLElement>('.skill-bar');
+  if (bars.length) {
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const bar = entry.target as HTMLElement;
+        const pct = bar.dataset.pct ?? '0';
+        bar.style.transition = 'width 1s ease';
+        bar.style.width = pct + '%';
+        barObserver.unobserve(bar);
+      });
+    }, { threshold: 0.1 });
+    bars.forEach(b => barObserver.observe(b));
+  }
+</script>

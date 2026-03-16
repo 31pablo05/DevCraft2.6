@@ -71,8 +71,36 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
       </div>
     </div>
 
-    <!-- Right column: code card + stats -->
-    <div class="reveal flex flex-col gap-6" style="animation-delay: .15s;">
+    <!-- Right column: profile photo + code card + stats -->
+    <div id="hero-right" class="reveal flex flex-col gap-6 transition-transform duration-500" style="animation-delay: .15s; transform-style: preserve-3d;">
+
+      <!-- Profile photo -->
+      <div class="flex justify-center md:justify-end">
+        <div class="relative" style="width:160px;">
+          <!-- Glow behind -->
+          <div class="absolute pointer-events-none" aria-hidden="true"
+               style="inset:-8px; background: radial-gradient(circle, rgba(93,3,140,0.5) 0%, transparent 70%); filter: blur(24px); z-index: 0; border-radius: 1rem;"></div>
+          <!-- Gradient border wrapper -->
+          <div class="relative rounded-2xl p-px" style="background: linear-gradient(135deg, #5d038c 0%, #3d1495 45%, #149af2 100%); z-index: 1;">
+            <div class="rounded-2xl overflow-hidden" style="aspect-ratio:1/1;">
+              <img
+                src="/pablo-proboste2.png"
+                alt="Pablo Proboste — Desarrollador Web"
+                width="160"
+                height="160"
+                class="w-full h-full object-cover object-top"
+                loading="eager"
+              />
+            </div>
+          </div>
+          <!-- Available chip -->
+          <span
+            class="absolute font-mono-custom text-xs px-2 py-1 rounded-full select-none"
+            style="bottom:-10px; right:-10px; color:#4ade80; background:rgba(10,6,18,0.9); border:1px solid #1a1030; backdrop-filter:blur(8px); z-index:2; white-space:nowrap;"
+          >✦ Disponible</span>
+        </div>
+      </div>
+
       <!-- Code block card -->
       <div class="rounded-xl p-5 font-mono-custom text-xs leading-relaxed"
            style="background: #0a0612; border: 1px solid #1a1030;">
@@ -87,8 +115,8 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
       <!-- Stats row -->
       <div class="grid grid-cols-3 gap-4">
         {stats.map(stat => (
-          <div class="rounded-lg p-4 text-center" style="background:#0a0612; border:1px solid #1a1030;">
-            <p class="serif-display text-2xl md:text-3xl grad-text-accent leading-none mb-1">{stat.value}</p>
+          <div class="stat-card rounded-lg p-4 text-center cursor-default" style="background:#0a0612; border:1px solid #1a1030;">
+            <p class="stat-value serif-display text-2xl md:text-3xl grad-text-accent leading-none mb-1 transition-all duration-200">{stat.value}</p>
             <p class="font-mono-custom text-xs" style="color:#7060a0;">{stat.label}</p>
           </div>
         ))}
@@ -97,3 +125,46 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
 
   </div>
 </section>
+
+<script>
+  /* ─── Hero right column 3D tilt ──────────────────────── */
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const el = document.getElementById('hero-right') as HTMLElement | null;
+    if (el) {
+      el.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const rotY =  dx * 8;
+        const rotX = -dy * 6;
+        el.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transition = 'transform 0.5s ease';
+        el.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+      el.addEventListener('mouseenter', () => {
+        el.style.transition = 'transform 0.1s ease';
+      });
+    }
+  }
+
+  /* ─── Stat card hover glow ───────────────────────────── */
+  document.querySelectorAll<HTMLElement>('.stat-card').forEach(card => {
+    const val = card.querySelector<HTMLElement>('.stat-value');
+    card.addEventListener('mouseenter', () => {
+      if (val) {
+        val.style.transform = 'scale(1.05)';
+        val.style.filter = 'drop-shadow(0 0 8px rgba(20,154,242,0.7))';
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      if (val) {
+        val.style.transform = 'scale(1)';
+        val.style.filter = 'none';
+      }
+    });
+  });
+</script>
