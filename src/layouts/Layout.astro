@@ -36,6 +36,12 @@ const {
     <style>
       @import "../styles/global.css";
     </style>
+    <!-- Force scroll to top on every load -->
+    <script is:inline>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      if (window.location.hash) history.replaceState(null, '', window.location.pathname);
+      window.scrollTo(0, 0);
+    </script>
   </head>
   <body class="bg-bg text-text antialiased">
     <slot />

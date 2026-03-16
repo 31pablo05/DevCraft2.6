@@ -26,18 +26,46 @@ const hasGithubLink = project.github && project.github !== '#' && project.github
 
 <article class="pcard rounded-xl flex flex-col bg-bg transition-all duration-300" style="border: 1px solid #1a1030;">
 
-  <!-- Visual placeholder -->
-  <div
-    class="relative h-44 rounded-t-xl flex items-center justify-center overflow-hidden"
-    style="background: linear-gradient(135deg, #2c045f 0%, #3d1495 50%, rgba(20,154,242,0.12) 100%);"
-  >
-    <span class="text-5xl" aria-hidden="true">{icon}</span>
-    <!-- Project number -->
-    <span class="serif-display italic absolute bottom-2 right-3 text-4xl select-none leading-none"
-          style="color: #1a1030; font-size: 3.5rem;">
-      {String(project.id).padStart(2, '0')}
-    </span>
-  </div>
+  <!-- Visual area: video with poster or gradient placeholder -->
+  {project.video ? (
+    <div class="relative h-44 rounded-t-xl overflow-hidden">
+      <video
+        class="w-full h-full object-cover"
+        src={project.video}
+        poster={project.poster}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      />
+      <!-- Bottom scrim for number legibility -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="background: linear-gradient(to top, rgba(10,0,25,0.6) 0%, transparent 55%);"
+      />
+      <span
+        class="serif-display italic absolute bottom-2 right-3 select-none leading-none"
+        style="color: rgba(255,255,255,0.15); font-size: 3.5rem;"
+      >
+        {String(project.id).padStart(2, '0')}
+      </span>
+    </div>
+  ) : (
+    <div
+      class="relative h-44 rounded-t-xl flex items-center justify-center overflow-hidden"
+      style="background: linear-gradient(135deg, #2c045f 0%, #3d1495 50%, rgba(20,154,242,0.12) 100%);"
+    >
+      <span class="text-5xl" aria-hidden="true">{icon}</span>
+      <!-- Project number -->
+      <span
+        class="serif-display italic absolute bottom-2 right-3 select-none leading-none"
+        style="color: #1a1030; font-size: 3.5rem;"
+      >
+        {String(project.id).padStart(2, '0')}
+      </span>
+    </div>
+  )}
 
   <!-- Body -->
   <div class="flex flex-col flex-1 p-5 gap-3">

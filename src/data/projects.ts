@@ -11,6 +11,8 @@ export interface Project {
   status: 'Producción' | 'Desarrollo' | 'Demo';
   progress: number;
   clientType: string;
+  video?: string;
+  poster?: string;
 }
 
 export const projects: Project[] = [
@@ -26,7 +28,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 20,
-    clientType: "Educativo"
+    clientType: "Educativo",
+    video: "/videosProjects/MaestraPatagonica.mp4",
+    poster: "/svg/posters/posterMaestraPatagonica.webp"
   },
   {
     id: 2,
@@ -40,7 +44,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Bienestar"
+    clientType: "Bienestar",
+    video: "/videosProjects/pichiRayen.mp4",
+    poster: "public/svg/posters/posterPichiRayen.webp"
   },
   {
     id: 3,
@@ -54,7 +60,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 95,
-    clientType: "Salud"
+    clientType: "Salud",
+    video: "/videosProjects/WebAppNutricionista.mp4",
+    poster: "public/svg/posters/posterNutricionista.webp"
   },
   {
     id: 4,
@@ -68,7 +76,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Producción",
     progress: 100,
-    clientType: "Restaurante"
+    clientType: "Restaurante",
+    video: "/videosProjects/WebAppPrepizzas.mp4",
+    poster: "/svg/posters/posterAppPrepizzas.webp"
   },
   {
     id: 5,
@@ -82,7 +92,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Creativo"
+    clientType: "Creativo",
+    video: "/videosProjects/FedeForquera.mp4",
+    poster: "/svg/posters/posterFilmaker.webp"
   },
   {
     id: 6,
@@ -96,7 +108,10 @@ export const projects: Project[] = [
     featured: false,
     status: "Producción",
     progress: 100,
-    clientType: "Salud"
+    clientType: "Salud",
+    video: "/videosProjects/FranciscoTorresOsteopatia.mp4",
+    poster: "/svg/posters/posterOsteopatia.webp"
+
   },
   {
     id: 7,
@@ -110,7 +125,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 65,
-    clientType: "Productividad"
+    clientType: "Productividad",
+    video: "public/svg/posters/posterPichiRayen.webp",
+    poster: "/svg/posters/TaDi-Captura.webp"
   },
   {
     id: 8,
@@ -124,7 +141,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Herramienta Creativa"
+    clientType: "Herramienta Creativa",
+    video: "/videosProjects/TrueColor.mp4",
+    poster: "/svg/posters/posterTrueColor .webp"
   },
   {
     id: 9,
@@ -138,7 +157,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Belleza"
+    clientType: "Belleza",
+    video: "/videosProjects/MyBeautyStudy.mp4",
+    poster: "/svg/posters/posterMyBeautyStudy.webp"
   },
   {
     id: 10,
@@ -152,7 +173,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Educativo"
+    clientType: "Educativo",
+      video: "/videosProjects/MicropigmentadoraLanding.mp4",
+      poster: "/svg/posters/posterMicropigmentadora.webp"  
   },
   {
     id: 11,
@@ -166,7 +189,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 85,
-    clientType: "Restaurante"
+    clientType: "Restaurante",
+    video: "/videosProjects/CafeDoncar.mp4",
+    poster: "/svg/posters/posterCafeDoncar.webp"
   },
   {
     id: 12,
@@ -180,7 +205,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 75,
-    clientType: "Retail"
+    clientType: "Retail",
+    video: "/videosProjects/OZZcycling.mp4",
+    poster: "/svg/posters/posterOZZ.webp"
   },
   {
     id: 13,
@@ -194,7 +221,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 80,
-    clientType: "Blanquería"
+    clientType: "Blanquería",
+    video: "/videosProjects/KuyenWeb.mp4",
+    poster: "/svg/posters/posterKuyen.webp"
   },
   {
     id: 14,
@@ -208,7 +237,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 70,
-    clientType: "Taller Mecánico"
+    clientType: "Taller Mecánico",
+    video: "/videosProjects/MecanicaLolo.mp4",  
+    poster: "/svg/posters/posterMecanicaLolo.webp"
   },
   {
     id: 15,
@@ -222,7 +253,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 75,
-    clientType: "Ferreterías"
+    clientType: "Ferreterías",
+    video: "/videosProjects/HerramientaBuloneria.mp4",
+    poster: "/svg/posters/posterBuloneria.webp"
   },
   {
     id: 16,
@@ -236,7 +269,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Demo",
     progress: 100,
-    clientType: "Gastronomía"
+    clientType: "Gastronomía",
+    video: "/videosProjects/CursoPasteleria.mp4",
+    poster: "/svg/posters/posterRecetasPasteleras.webp"
   },
   {
     id: 17,
@@ -250,7 +285,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Demo",
     progress: 100,
-    clientType: "Vivero"
+    clientType: "Vivero",
+    video: "/videosProjects/ViveroPatagonia.mp4",
+    poster: "/svg/posters/posterviverodemo.webp"
   },
   {
     id: 18,
@@ -264,7 +301,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Demo",
     progress: 60,
-    clientType: "Juegos / PWA"
+    clientType: "Juegos / PWA",
+    video: "/videosProjects/TetrisWeb.mp4",
+    poster: "/svg/posters/posterTetris.webp"
   },
   {
     id: 19,
@@ -278,7 +317,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Demo",
     progress: 100,
-    clientType: "Educación"
+    clientType: "Educación",
+    video: "/videosProjects/CursoFotografia.mp4",
+    poster: "/svg/posters/postercursofotos.webp"
   },
   {
     id: 20,
@@ -292,7 +333,9 @@ export const projects: Project[] = [
     featured: false,
     status: "Demo",
     progress: 100,
-    clientType: "Educación"
+    clientType: "Educación",
+    video: "/videosProjects/CursoPasteleria.mp4",   
+    poster: "/svg/posters/posterCursoPasteleria.webp"
   },
   {
     id: 21,
@@ -306,7 +349,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Coaching"
+    clientType: "Coaching",
+    video: "/videosProjects/CoachingDeRaiz.mp4",
+    poster: "/svg/posters/postercoachingderaiz.webp"
   },
   {
     id: 22,
@@ -320,7 +365,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Diseño Gráfico"
+    clientType: "Diseño Gráfico",
+    video: "/videosProjects/BaliDesign.mp4",
+    poster: "/svg/posters/balidesignposter.webp"
   },
   {
     id: 23,
@@ -334,7 +381,51 @@ export const projects: Project[] = [
     featured: true,
     status: "Desarrollo",
     progress: 60,
-    clientType: "Herramienta Web"
+    clientType: "Herramienta Web",
+    video: "/videosProjects/GeneradorMarcaAgua.mp4",
+    poster: "/svg/posters/postermarcadeagua.webp"
+  },
+  {
+    id: 24,
+    title: "El Impostor",
+    subtitle: "PWA · Juego Social Multijugador",
+    description: "Juego PWA instalable inspirado en el clásico social deduction. Jugá entre amigos de forma nativa en cualquier dispositivo sin descarga de tienda.",
+    technologies: ["React", "Vite", "Tailwind CSS", "CSS", "PWA", "JavaScript"],
+    category: "tools",
+    github: "",
+    demo: "#",
+    featured: false,
+    status: "Desarrollo",
+    progress: 55,
+    clientType: "Juegos / PWA"
+  },
+  {
+    id: 25,
+    title: "Vete a la Cima",
+    subtitle: "Consultoría Estratégica · Sector Veterinario & Pet",
+    description: "Plataforma web para consultora veterinaria especializada en estrategia, digitalización y crecimiento para negocios del sector. Incluye blog profesional, formularios de contacto y analítica integrada.",
+    technologies: ["Astro", "React", "Vite", "Tailwind CSS", "CSS", "Sanity.io", "Web3Forms", "WhatsApp API", "Google Analytics", "Google Search Console", "Vercel"],
+    category: "coaching",
+    github: "",
+    demo: "#",
+    featured: true,
+    status: "Producción",
+    progress: 100,
+    clientType: "Consultoría Veterinaria"
+  },
+  {
+    id: 26,
+    title: "S3A Industrial",
+    subtitle: "Web Corporativa · Mantenimiento de Sopladores",
+    description: "Sitio web para empresa de Buenos Aires especializada en mantenimiento y reparación de sopladores industriales. Servicios técnicos, catálogo de equipos y contacto comercial.",
+    technologies: ["React", "Vite", "Tailwind CSS", "CSS", "WhatsApp API"],
+    category: "automotive",
+    github: "",
+    demo: "#",
+    featured: true,
+    status: "Producción",
+    progress: 100,
+    clientType: "Industrial"
   }
 ];
 

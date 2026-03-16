@@ -35,6 +35,14 @@ import '../styles/global.css';
 </Layout>
 
 <script>
+  /* ─── Scroll to top on load ─────────────────────────── */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  // also clear any hash from URL without triggering scroll
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+  }
+
   /* ─── Custom Cursor ─────────────────────────────────── */
   const cursor     = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursor-ring');
