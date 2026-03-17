@@ -52,8 +52,8 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
         23 proyectos lanzados, 3+ años de experiencia, compromiso total.
       </p>
 
-      <!-- Buttons -->
-      <div class="flex flex-wrap gap-4">
+      <!-- Buttons (desktop only) -->
+      <div class="hidden md:flex flex-wrap gap-4">
         <a
           href="#projects"
           class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
@@ -76,19 +76,19 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
 
       <!-- Profile photo -->
       <div class="flex justify-center md:justify-end">
-        <div class="relative" style="width:160px;">
+        <div class="relative w-full" style="max-width:420px;">
           <!-- Glow behind -->
           <div class="absolute pointer-events-none" aria-hidden="true"
-               style="inset:-8px; background: radial-gradient(circle, rgba(93,3,140,0.5) 0%, transparent 70%); filter: blur(24px); z-index: 0; border-radius: 1rem;"></div>
+               style="inset:-16px; background: radial-gradient(circle, rgba(93,3,140,0.5) 0%, transparent 70%); filter: blur(32px); z-index: 0; border-radius: 1.5rem;"></div>
           <!-- Gradient border wrapper -->
           <div class="relative rounded-2xl p-px" style="background: linear-gradient(135deg, #5d038c 0%, #3d1495 45%, #149af2 100%); z-index: 1;">
-            <div class="rounded-2xl overflow-hidden" style="aspect-ratio:1/1;">
+            <div class="rounded-2xl overflow-hidden" style="background:#0a0612;">
               <img
-                src="/assets/imagenesPerfil/imghero.png"
+                src="/assets/imagenesPerfil/heroconfondo.jpg"
                 alt="Pablo Proboste — Desarrollador Web"
-                width="160"
-                height="160"
-                class="w-full h-full object-cover object-top"
+                width="420"
+                height="560"
+                class="w-full h-full object-contain block"
                 loading="eager"
               />
             </div>
@@ -99,6 +99,24 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.ts</span>
             style="bottom:-10px; right:-10px; color:#4ade80; background:rgba(10,6,18,0.9); border:1px solid #1a1030; backdrop-filter:blur(8px); z-index:2; white-space:nowrap;"
           >✦ Disponible</span>
         </div>
+      </div>
+
+      <!-- Buttons (mobile only, below image) -->
+      <div class="flex md:hidden flex-wrap gap-4 justify-center">
+        <a
+          href="#projects"
+          class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
+        >
+          Ver proyectos →
+        </a>
+        <a
+          href="mailto:devcraft.pablo@gmail.com"
+          class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent"
+          style="border: 1px solid #1a1030;"
+        >
+          Escribirme
+        </a>
       </div>
 
       <!-- Code block card -->
