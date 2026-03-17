@@ -56,7 +56,6 @@ body {
   background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 20, 149, 0.15) 0%, transparent 60%);
   color: #feffff;
   font-family: "DM Sans", sans-serif;
-  cursor: none;
   overflow-x: hidden;
 }
 
@@ -72,38 +71,41 @@ body::before {
   opacity: 0.4;
 }
 
-/* ─── Custom Cursor ─────────────────────────────────────── */
-.cursor {
-  width: 8px;
-  height: 8px;
-  background: #149af2;
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px #149af2, 0 0 24px #149af260;
-  transition: width .15s, height .15s, background .15s;
-}
-.cursor.hovering {
-  width: 12px; height: 12px;
-  background: #5d038c;
-}
-.cursor-ring {
-  width: 34px; height: 34px;
-  border: 1px solid rgba(20,154,242,.3);
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width .3s, height .3s, border-color .3s;
-}
-.cursor-ring.hovering {
-  width: 52px; height: 52px;
-  border-color: rgba(20,154,242,.7);
+/* ─── Custom Cursor (desktop / pointer:fine only) ───────── */
+@media (pointer: fine) {
+  body { cursor: none; }
+  .cursor {
+    width: 8px;
+    height: 8px;
+    background: #149af2;
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #149af2, 0 0 24px #149af260;
+    transition: width .15s, height .15s, background .15s;
+  }
+  .cursor.hovering {
+    width: 12px; height: 12px;
+    background: #5d038c;
+  }
+  .cursor-ring {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(20,154,242,.3);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width .3s, height .3s, border-color .3s;
+  }
+  .cursor-ring.hovering {
+    width: 52px; height: 52px;
+    border-color: rgba(20,154,242,.7);
+  }
 }
 
 /* ─── Scroll Reveal ─────────────────────────────────────── */
