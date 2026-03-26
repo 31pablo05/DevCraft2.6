@@ -168,9 +168,11 @@ body::before {
 
 /* ─── nav scrolled state ────────────────────────────────── */
 nav.scrolled {
-  border-bottom: 1px solid #1a1030;
-  background: rgba(0,0,0,.9);
-  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(93,3,140,0.4);
+  background: rgba(10,6,18,0.82);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  box-shadow: 0 1px 0 rgba(93,3,140,0.5), 0 8px 48px rgba(93,3,140,0.12), inset 0 0 80px rgba(93,3,140,0.07);
 }
 
 /* ─── project card hover bottom line ───────────────────── */

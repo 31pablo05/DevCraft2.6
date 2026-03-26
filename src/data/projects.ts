@@ -47,7 +47,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Bienestar",
     video: "/videosProjects/pichiRayen.mp4",
-    poster: "public/svg/posters/posterPichiRayen.webp"
+    poster: "/svg/posters/posterPichiRayen.webp"
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     progress: 95,
     clientType: "Salud",
     video: "/videosProjects/WebAppNutricionista.mp4",
-    poster: "public/svg/posters/posterNutricionista.webp"
+    poster: "/svg/posters/posterNutricionista.webp"
   },
   {
     id: 4,
@@ -127,7 +127,6 @@ export const projects: Project[] = [
     status: "Desarrollo",
     progress: 65,
     clientType: "Productividad",
-    video: "public/svg/posters/posterPichiRayen.webp",
     poster: "/svg/posters/TaDi-Captura.webp"
   },
   {
@@ -160,7 +159,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Belleza",
     video: "/videosProjects/MyBeautyStudy.mp4",
-    poster: "/svg/posters/posterMyBeautyStudy.webp"
+    poster: "/svg/posters/posterMYBEAUTYSTUDY.webp"
   },
   {
     id: 10,
@@ -272,7 +271,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Gastronomía",
     video: "/videosProjects/CursoPasteleria.mp4",
-    poster: "/svg/posters/posterRecetasPasteleras.webp"
+    poster: "/svg/posters/posterrecetariodemo.webp"
   },
   {
     id: 17,
@@ -336,7 +335,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Educación",
     video: "/videosProjects/CursoPasteleria.mp4",   
-    poster: "/svg/posters/posterCursoPasteleria.webp"
+    poster: "/svg/posters/postercursopasteleria.webp"
   },
   {
     id: 21,

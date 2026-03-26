@@ -1,6 +1,21 @@
 ---
 ---
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12 flex items-center justify-between">
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12 flex items-center justify-between overflow-hidden"
+  style="background: rgba(10,6,18,0.55); border-bottom: 1px solid rgba(93,3,140,0.25); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); box-shadow: 0 1px 0 rgba(93,3,140,0.3), 0 4px 32px rgba(93,3,140,0.08), inset 0 0 60px rgba(93,3,140,0.05);">
+
+  <!-- Firefly particles -->
+  <div class="nav-particles" aria-hidden="true">
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+    <span class="particle p4"></span>
+    <span class="particle p5"></span>
+    <span class="particle p6"></span>
+  </div>
+
+  <!-- Smoke blobs -->
+  <div class="nav-smoke-left" aria-hidden="true"></div>
+  <div class="nav-smoke-right" aria-hidden="true"></div>
 
   <!-- Logo -->
   <a href="/" id="nav-logo-link" class="flex items-center relative z-[60]" aria-label="DevCraft inicio" style="perspective: 400px;">
@@ -18,7 +33,7 @@
   </a>
 
   <!-- Desktop links -->
-  <div class="hidden md:flex items-center gap-8">
+  <div class="hidden md:flex items-center gap-8 relative z-[1]">
     <a href="#services" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Servicios</a>
     <a href="#about"    class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Sobre mí</a>
     <a href="#projects" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Proyectos</a>
@@ -148,6 +163,71 @@
 
   /* link hover bg */
   .mob-link:hover { background: rgba(44,4,95,0.25); }
+
+  /* ── Nav particles (fireflies) ── */
+  .nav-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(93,3,140,0.9) 0%, rgba(20,154,242,0.3) 60%, transparent 100%);
+    animation: floatParticle var(--dur, 6s) ease-in-out infinite;
+    opacity: 0;
+  }
+
+  .p1 { width: 3px; height: 3px; left: 15%;  top: 30%; --dur: 5s;   animation-delay: 0s;    --tx: 18px;  --ty: -12px; }
+  .p2 { width: 2px; height: 2px; left: 35%;  top: 60%; --dur: 7s;   animation-delay: 1.2s; --tx: -14px; --ty: -18px; }
+  .p3 { width: 4px; height: 4px; left: 55%;  top: 25%; --dur: 6.5s; animation-delay: 2.5s; --tx: 20px;  --ty: 10px;  }
+  .p4 { width: 2px; height: 2px; left: 70%;  top: 55%; --dur: 8s;   animation-delay: 0.8s; --tx: -10px; --ty: -22px; }
+  .p5 { width: 3px; height: 3px; left: 82%;  top: 35%; --dur: 5.5s; animation-delay: 3.1s; --tx: 12px;  --ty: 15px;  }
+  .p6 { width: 2px; height: 2px; left: 45%;  top: 70%; --dur: 9s;   animation-delay: 1.8s; --tx: -20px; --ty: -8px;  }
+
+  @keyframes floatParticle {
+    0%   { opacity: 0;   transform: translate(0, 0) scale(1); }
+    20%  { opacity: 0.7; }
+    50%  { opacity: 0.4; transform: translate(var(--tx), var(--ty)) scale(1.5); }
+    80%  { opacity: 0.6; }
+    100% { opacity: 0;   transform: translate(calc(var(--tx) * 1.8), calc(var(--ty) * 1.8)) scale(0.8); }
+  }
+
+  /* ── Nav smoke blobs ── */
+  .nav-smoke-left {
+    position: absolute;
+    left: -60px;
+    top: -30px;
+    width: 220px;
+    height: 100px;
+    background: radial-gradient(ellipse, rgba(93,3,140,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: smokeFloat 8s ease-in-out infinite;
+  }
+
+  .nav-smoke-right {
+    position: absolute;
+    right: -80px;
+    top: -20px;
+    width: 280px;
+    height: 90px;
+    background: radial-gradient(ellipse, rgba(20,154,242,0.07) 0%, rgba(93,3,140,0.06) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: smokeFloat 11s ease-in-out infinite reverse;
+  }
+
+  @keyframes smokeFloat {
+    0%, 100% { transform: translateX(0) translateY(0) scale(1); opacity: 1; }
+    33%       { transform: translateX(20px) translateY(5px) scale(1.05); opacity: 0.85; }
+    66%       { transform: translateX(-15px) translateY(-8px) scale(0.95); opacity: 0.9; }
+  }
 </style>
 
 <script>
