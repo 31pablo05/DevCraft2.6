@@ -84,14 +84,14 @@ const stack = [
           class="stack-item group/item bg-surface p-6 flex flex-col items-center gap-3 cursor-default transition-all duration-300 hover:bg-[#0f0a1f]"
         >
           <div
-            class="transition-transform duration-300 group-hover/item:scale-110"
+            class="stack-icon-wrap transition-transform duration-300 group-hover/item:scale-110"
             style={`filter: drop-shadow(0 0 0px ${item.color});`}
             onmouseover={`this.style.filter='drop-shadow(0 0 8px ${item.color})'`}
             onmouseout={`this.style.filter='drop-shadow(0 0 0px ${item.color})'`}
             set:html={item.svgPath}
           />
           <span
-            class="font-mono-custom text-xs text-muted transition-colors duration-300 group-hover/item:text-[#feffff]"
+            class="stack-item-name font-mono-custom text-xs text-muted transition-colors duration-300 group-hover/item:text-[#feffff]"
           >{item.name}</span>
         </div>
       ))}
@@ -99,3 +99,17 @@ const stack = [
 
   </div>
 </section>
+
+<style>
+  .stack-icon-wrap {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .stack-item:hover .stack-icon-wrap {
+    filter: drop-shadow(0 0 8px rgba(20,154,242,0.6)) brightness(1.2);
+    transform: scale(1.1) translateY(-2px);
+  }
+  .stack-item:hover .stack-item-name {
+    color: #feffff;
+    transition: color 0.2s ease;
+  }
+</style>

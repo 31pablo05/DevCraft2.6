@@ -46,7 +46,7 @@
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
       <a
         href="mailto:devcraft.pablo@gmail.com"
-        class="px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+        class="btn-ripple px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
         style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
       >
         📬 Escribirme por mail
@@ -55,7 +55,7 @@
         href="https://wa.me/5492804389134?text=Hola%20Pablo%2C%20vi%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto%20%F0%9F%91%8B"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent hover:-translate-y-0.5"
+        class="btn-ripple px-7 py-3.5 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent hover:-translate-y-0.5"
         style="border: 1px solid #1a1030;"
       >
         💬 WhatsApp
@@ -99,3 +99,38 @@
     </div>
   </div>
 </section>
+
+<style>
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-ripple .ripple-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transform: scale(0);
+    animation: rippleAnim 0.6s linear;
+    pointer-events: none;
+  }
+  @keyframes rippleAnim {
+    to { transform: scale(4); opacity: 0; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.btn-ripple').forEach(btn => {
+    btn.addEventListener('click', (e: Event) => {
+      const ev = e as MouseEvent;
+      const rect = (btn as HTMLElement).getBoundingClientRect();
+      const circle = document.createElement('span');
+      circle.classList.add('ripple-circle');
+      const size = Math.max(rect.width, rect.height);
+      circle.style.width  = circle.style.height = size + 'px';
+      circle.style.left   = (ev.clientX - rect.left  - size / 2) + 'px';
+      circle.style.top    = (ev.clientY - rect.top   - size / 2) + 'px';
+      btn.appendChild(circle);
+      setTimeout(() => circle.remove(), 650);
+    });
+  });
+</script>

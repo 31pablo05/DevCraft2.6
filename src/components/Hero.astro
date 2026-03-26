@@ -37,30 +37,32 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.js</span>
 
       <!-- H1 -->
       <h1 class="serif-display font-normal leading-tight mb-4">
-        <span class="block text-5xl md:text-7xl text-text">Pablo</span>
-        <span class="block text-5xl md:text-7xl grad-text">Proboste</span>
+        <span class="block text-5xl md:text-7xl text-text hero-line-1">Pablo</span>
+        <span class="block text-5xl md:text-7xl grad-text hero-line-2">Proboste</span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="serif-display text-lg md:text-xl italic mb-4" style="color: #149af2;">
+      <p class="serif-display text-lg md:text-xl italic mb-4 hero-subtitle" style="color: #149af2;">
         Desarrollador Web &amp; Creador Digital
       </p>
 
       <!-- Description -->
-      <p class="text-muted text-base md:text-lg max-w-md leading-relaxed mb-8">
+      <p class="text-muted text-base md:text-lg max-w-md leading-relaxed mb-8 hero-desc">
         Construyo sitios web reales para negocios reales. Desde Patagonia para el mundo.
         23 proyectos lanzados, 3+ años de experiencia, compromiso total.
       </p>
 
       <!-- Buttons (desktop only) -->
-      <div class="hidden md:flex flex-wrap gap-4">
-        <a
-          href="#projects"
-          class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
-          style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
-        >
-          Ver proyectos →
-        </a>
+      <div class="hidden md:flex flex-wrap gap-4 hero-btns">
+        <div class="hero-btn-wrap">
+          <a
+            href="#projects"
+            class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+            style="background: linear-gradient(135deg, #3d1495, #2a7de5);"
+          >
+            Ver proyectos →
+          </a>
+        </div>
         <a
           href="mailto:devcraft.pablo@gmail.com"
           class="px-6 py-3 rounded-md text-sm font-medium text-text transition-all duration-200 hover:border-accent"
@@ -143,6 +145,44 @@ const codeHtml = `<span style="color:#7060a0">// pablo.config.js</span>
 
   </div>
 </section>
+
+<style>
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(32px) skewY(1.5deg); }
+    to   { opacity: 1; transform: translateY(0) skewY(0deg); }
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-line-1  { animation: heroReveal 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+  .hero-line-2  { animation: heroReveal 0.75s cubic-bezier(0.22,1,0.36,1) 0.22s both; }
+  .hero-subtitle { animation: heroFadeIn 0.6s ease 0.42s both; }
+  .hero-desc     { animation: heroFadeIn 0.6s ease 0.56s both; }
+  .hero-btns     { animation: heroFadeIn 0.6s ease 0.7s both; }
+
+  .hero-btn-wrap {
+    position: relative;
+    display: inline-block;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .hero-btn-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 3.5s ease-in-out 1.5s infinite;
+  }
+  @keyframes shimmer {
+    0%   { left: -100%; }
+    40%  { left: 130%;  }
+    100% { left: 130%;  }
+  }
+</style>
 
 <script>
   /* ─── Hero right column 3D tilt ──────────────────────── */

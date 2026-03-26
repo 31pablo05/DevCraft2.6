@@ -38,18 +38,18 @@ const steps = [
       <!-- Connector line (desktop only) -->
       <div
         class="hidden md:block absolute pointer-events-none"
-        style="top: 72px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, #3d1495, #149af2); opacity: 0.35; z-index: 1;"
+        style="top: 72px; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, #3d1495, #149af2); opacity: 0.7; z-index: 1; box-shadow: 0 0 8px rgba(20,154,242,0.4);"
         aria-hidden="true"
       ></div>
 
       {steps.map((step, i) => (
-        <div class="process-step relative bg-surface p-8 group cursor-default">
+        <div class="process-step relative bg-surface p-8 group cursor-default reveal-step" data-delay={i * 120}>
           <!-- Small mono number above the big one -->
           <p class="font-mono-custom text-xs mb-1 select-none" style="color:#3d1495;">{step.num}</p>
           <!-- Big number -->
           <p
-            class="serif-display italic font-normal leading-none mb-4 select-none transition-all duration-300"
-            style="font-size: 4rem; color: #1a1030;"
+            class="process-num serif-display italic font-normal leading-none mb-4 select-none transition-all duration-300"
+            style="font-size: 4rem;"
           >
             {step.num}
           </p>
@@ -89,4 +89,43 @@ const steps = [
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .process-num {
+    background: linear-gradient(135deg, rgba(93,3,140,0.15), rgba(61,20,149,0.25));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .process-step:hover .process-num {
+    background: linear-gradient(135deg, #5d038c, #3d1495, #149af2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.4s ease;
+  }
+
+  .reveal-step {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
+
+<script>
+  const steps = document.querySelectorAll<HTMLElement>('.reveal-step');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const delay = parseInt(el.dataset.delay ?? '0', 10);
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  steps.forEach(step => observer.observe(step));
+</script>

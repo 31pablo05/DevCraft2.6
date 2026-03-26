@@ -309,11 +309,12 @@ const stats = [
         if (!entry.isIntersecting) return;
         const bar = entry.target as HTMLElement;
         const pct = bar.dataset.pct ?? '0';
-        bar.style.transition = 'width 1s ease';
-        bar.style.width = pct + '%';
+        setTimeout(() => {
+          bar.style.width = pct + '%';
+        }, 200);
         barObserver.unobserve(bar);
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.3 });
     bars.forEach(b => barObserver.observe(b));
   }
 </script>

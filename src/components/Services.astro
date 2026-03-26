@@ -32,11 +32,11 @@ const services = [
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background:#1a1030;">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
       {services.map((s) => (
         <div class="service-card p-8 bg-bg transition-all duration-300 cursor-default">
           <!-- Icon -->
-          <div class="text-4xl mb-6 leading-none" style="color:#149af2; font-size:42px;">{s.icon}</div>
+          <div class="text-4xl mb-6 leading-none service-icon" style="color:#149af2; font-size:42px;">{s.icon}</div>
           <!-- Title -->
           <h3 class="serif-display text-xl font-normal text-text mb-3">{s.title}</h3>
           <!-- Description -->
