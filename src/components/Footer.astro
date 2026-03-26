@@ -1,7 +1,7 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="py-12 px-6 md:px-12" style="border-top: 1px solid #1a1030;">
+<footer class="footer-glow py-12 px-6 md:px-12">
   <div class="max-w-7xl mx-auto">
 
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-center md:text-left">
@@ -47,3 +47,17 @@ const year = new Date().getFullYear();
 
   </div>
 </footer>
+
+<style>
+  .footer-glow {
+    position: relative;
+  }
+  .footer-glow::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 5%; right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #5d038c 20%, #3d1495 50%, #149af2 80%, transparent);
+    box-shadow: 0 0 12px rgba(93,3,140,0.5), 0 0 24px rgba(20,154,242,0.2);
+  }
+</style>

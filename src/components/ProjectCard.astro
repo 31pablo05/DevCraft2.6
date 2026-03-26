@@ -29,15 +29,24 @@ const hasGithubLink = project.github && project.github !== '#' && project.github
   <!-- Visual area: video with poster or gradient placeholder -->
   {project.video ? (
     <div class="relative h-44 rounded-t-xl overflow-hidden">
+      <!-- Poster image (always visible) -->
+      <img
+        src={project.poster ?? project.posterSrc}
+        alt={project.title}
+        class="card-poster w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        width="400"
+        height="176"
+      />
+      <!-- Video preview (fades in on hover) -->
       <video
-        class="w-full h-full object-cover"
+        class="card-video absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
         src={project.video}
-        poster={project.poster}
-        autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="none"
+        aria-hidden="true"
       />
       <!-- Bottom scrim for number legibility -->
       <div
@@ -49,6 +58,21 @@ const hasGithubLink = project.github && project.github !== '#' && project.github
         style="color: rgba(255,255,255,0.15); font-size: 3.5rem;"
       >
         {String(project.id).padStart(2, '0')}
+      </span>
+      <!-- Status badge top-right -->
+      <span
+        class="absolute top-2 right-2 font-mono-custom text-xs px-2 py-0.5 rounded-full"
+        style={`color: ${s.color}; background: ${s.bg};`}
+      >
+        {s.label}
+      </span>
+      <!-- Category icon top-left -->
+      <span
+        class="absolute top-2 left-2 font-mono-custom text-xs px-2 py-1 rounded-full"
+        style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);"
+        aria-hidden="true"
+      >
+        {icon}
       </span>
     </div>
   ) : project.posterSrc ? (
@@ -183,3 +207,23 @@ const hasGithubLink = project.github && project.github !== '#' && project.github
 
   </div>
 </article>
+
+<style>
+  .pcard:hover .card-video {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.pcard').forEach(card => {
+    const video = card.querySelector<HTMLVideoElement>('.card-video');
+    if (!video) return;
+    card.addEventListener('mouseenter', () => {
+      video.play().catch(() => {});
+    });
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>

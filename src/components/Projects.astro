@@ -103,19 +103,30 @@ const statusTabs = [
       let visible = 0;
 
       items.forEach(item => {
-        item.style.display = 'none';
-        item.style.opacity = '0';
+        if (!filtered.includes(item)) {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.94) translateY(8px)';
+          item.style.pointerEvents = 'none';
+          setTimeout(() => { item.style.display = 'none'; }, 250);
+        }
       });
 
       filtered.forEach((item, i) => {
         const show = expanded || i < INITIAL_VISIBLE;
         if (show) {
           item.style.display = 'block';
-          // trigger reflow for transition
-          item.offsetHeight;
-          item.style.transition = 'opacity 0.3s ease';
-          item.style.opacity = '1';
+          item.style.pointerEvents = '';
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.94) translateY(8px)';
+          const delay = (i % INITIAL_VISIBLE) * 60;
+          setTimeout(() => {
+            item.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1)';
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1) translateY(0)';
+          }, delay);
           visible++;
+        } else {
+          item.style.display = 'none';
         }
       });
 
