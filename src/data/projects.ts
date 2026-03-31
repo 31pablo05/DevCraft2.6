@@ -392,12 +392,14 @@ export const projects: Project[] = [
     description: "Juego PWA instalable inspirado en el clásico social deduction. Jugá entre amigos de forma nativa en cualquier dispositivo sin descarga de tienda.",
     technologies: ["React", "Vite", "Tailwind CSS", "CSS", "PWA", "JavaScript"],
     category: "tools",
-    github: "",
-    demo: "#",
+    github: "https://github.com/31pablo05/DevCraftImpostor",
+    demo: "https://dev-craft-impostor.vercel.app/",
     featured: false,
     status: "Desarrollo",
     progress: 55,
-    clientType: "Juegos / PWA"
+    clientType: "Juegos / PWA",
+    video: "/videosProjects/impostorJuego.mp4",
+    poster: "/svg/posters/impostordevcraft.png"
   },
   {
     id: 25,
@@ -407,11 +409,13 @@ export const projects: Project[] = [
     technologies: ["Astro", "React", "Vite", "Tailwind CSS", "CSS", "Sanity.io", "Web3Forms", "WhatsApp API", "Google Analytics", "Google Search Console", "Vercel"],
     category: "coaching",
     github: "",
-    demo: "#",
+    demo: "https://www.vetealacima.com/",
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Consultoría Veterinaria"
+    clientType: "Consultoría Veterinaria",
+    video: "/videosProjects/veteAlACima.mp4",
+    poster: "/svg/posters/posteVetealacima.webp"
   },
   {
     id: 26,
