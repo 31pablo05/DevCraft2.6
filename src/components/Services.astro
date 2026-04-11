@@ -10,7 +10,7 @@ const services = [
     thumbs: [
       { src: "/svg/posters/posterdoncarnuevo.PNG", alt: "Doncar" },
       { src: "/svg/posters/postercoachingderaiz.webp", alt: "Coaching de Raíz" },
-      { src: null, label: "+24" }
+      { src: "/svg/posters/posteVetealacima.webp", alt: "Vete a la Cima" }
     ],
     thumbRatio: "16/9",
     cta: { text: "Ver proyectos →", href: "#projects" },
@@ -25,9 +25,9 @@ const services = [
     accentColor: "#D85A30",
     proof: { number: "50+", label: "piezas diseñadas", sub: "flyers · banners · kits" },
     thumbs: [
-      { src: null, label: "Flyer" },
-      { src: null, label: "Post" },
-      { src: null, label: "Kit" }
+      { src: "/svg/posters/impostordevcraft.png", alt: "El Impostor" },
+      { src: "/assets/imagenesPerfil/logos3a.jpg", alt: "S3A Industrial" },
+      { src: "/svg/posters/posters3aindustrial.png", alt: "Coaching de Raíz" }
     ],
     thumbRatio: "1/1",
     cta: { text: "Ver diseños →", href: "https://instagram.com/probostepablo67" },
@@ -44,7 +44,7 @@ const services = [
     thumbs: [
       { src: "/assets/imagenesPerfil/posterdoncar.PNG", alt: "Doncar" },
       { src: "/assets/imagenesPerfil/posterindependietne.PNG", alt: "Independiente" },
-      { src: null, label: "+3" }
+      { video: "/reels/reels3ainsdustial.mp4", poster: "/svg/posters/posters3aindustrial.png", alt: "S3A Industrial" }
     ],
     thumbRatio: "9/16",
     cta: { text: "Ver reels →", href: "#reels" },
@@ -129,10 +129,12 @@ const services = [
             <!-- Thumbnails -->
             {s.thumbs.length > 0 && (
               <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding-bottom:1rem;">
-                {s.thumbs.map((thumb: { src: string | null; alt?: string; label?: string }) => (
-                  thumb.src
-                    ? <img src={thumb.src} alt={thumb.alt} style={`aspect-ratio:${s.thumbRatio}; width:100%; object-fit:cover; border-radius:4px; border:0.5px solid #1a1030;`} loading="lazy" />
-                    : <div style={`aspect-ratio:${s.thumbRatio}; background:#1a1030; border-radius:4px; border:0.5px solid #2c045f; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; color:#7060a0;`}>{thumb.label}</div>
+                {s.thumbs.map((thumb: { src?: string | null; video?: string; poster?: string; alt?: string; label?: string }) => (
+                  thumb.video
+                    ? <video src={thumb.video} poster={thumb.poster} autoplay muted loop playsinline preload="metadata" style={`aspect-ratio:${s.thumbRatio}; width:100%; object-fit:cover; border-radius:4px; border:0.5px solid #1a1030;`}></video>
+                    : thumb.src
+                      ? <img src={thumb.src} alt={thumb.alt} style={`aspect-ratio:${s.thumbRatio}; width:100%; object-fit:cover; border-radius:4px; border:0.5px solid #1a1030;`} loading="lazy" />
+                      : <div style={`aspect-ratio:${s.thumbRatio}; background:#1a1030; border-radius:4px; border:0.5px solid #2c045f; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; color:#7060a0;`}>{thumb.label ?? ""}</div>
                 ))}
               </div>
             )}

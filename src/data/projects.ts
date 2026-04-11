@@ -431,7 +431,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Industrial",
     video: "/videosProjects/S3AIndustrialweb.mp4",
-    poster: "/svg/posters/posters3aindustrial.PNG"
+    poster: "/svg/posters/posters3aindustrialweb.PNG"
   }
 ];
 
