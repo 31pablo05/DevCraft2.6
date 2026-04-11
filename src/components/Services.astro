@@ -4,19 +4,66 @@ const services = [
     icon: "⬡",
     title: "Sitios Web Premium",
     description: "Landing pages, sitios institucionales y e-commerce. Diseño único, código limpio, animaciones y 100% mobile-first.",
-    tags: ["Astro", "React", "Tailwind CSS", "Vite"]
+    tags: ["Astro", "React", "Tailwind CSS", "Vite"],
+    accentColor: "#7F77DD",
+    proof: { number: "26+", label: "proyectos lanzados", sub: "en producción" },
+    thumbs: [
+      { src: "/svg/posters/posterdoncarnuevo.PNG", alt: "Doncar" },
+      { src: "/svg/posters/postercoachingderaiz.webp", alt: "Coaching de Raíz" },
+      { src: null, label: "+24" }
+    ],
+    thumbRatio: "16/9",
+    cta: { text: "Ver proyectos →", href: "#projects" },
+    ctaSub: "devcraftpablo.online",
+    comingSoon: false
   },
   {
     icon: "◈",
     title: "Contenido Visual",
     description: "Diseño de piezas gráficas, banners, identidad visual y contenido para redes sociales con Canva Pro y herramientas pro.",
-    tags: ["Canva Pro", "Branding", "Social Media", "Diseño Gráfico"]
+    tags: ["Canva Pro", "Branding", "Social Media", "Diseño Gráfico"],
+    accentColor: "#D85A30",
+    proof: { number: "50+", label: "piezas diseñadas", sub: "flyers · banners · kits" },
+    thumbs: [
+      { src: null, label: "Flyer" },
+      { src: null, label: "Post" },
+      { src: null, label: "Kit" }
+    ],
+    thumbRatio: "1/1",
+    cta: { text: "Ver diseños →", href: "https://instagram.com/probostepablo67" },
+    ctaSub: "Instagram",
+    comingSoon: false
   },
   {
     icon: "⊕",
     title: "Gestión de RRSS",
     description: "Estrategia, diseño y gestión mensual de redes sociales. Posts, Reels, Stories y calendario editorial con identidad de marca consistente.",
-    tags: ["Instagram", "TikTok", "Reels", "Stories", "Copywriting", "Canva Pro"]
+    tags: ["Instagram", "TikTok", "Reels", "Stories", "Copywriting", "Canva Pro"],
+    accentColor: "#1D9E75",
+    proof: { number: "10+", label: "cuentas gestionadas", sub: "reels · stories · posts" },
+    thumbs: [
+      { src: "/assets/imagenesPerfil/posterdoncar.PNG", alt: "Doncar" },
+      { src: "/assets/imagenesPerfil/posterindependietne.PNG", alt: "Independiente" },
+      { src: null, label: "+3" }
+    ],
+    thumbRatio: "9/16",
+    cta: { text: "Ver reels →", href: "#reels" },
+    ctaSub: "@probostepablo67",
+    comingSoon: false
+  },
+  {
+    icon: "◎",
+    title: "Publicidad Digital",
+    description: "Campañas pagas en Meta Ads y Google Ads. Segmentación, creatividades y optimización para convertir presupuesto en clientes reales.",
+    tags: ["Meta Ads", "Google Ads", "Segmentación", "ROAS"],
+    accentColor: "#888780",
+    proof: { number: "Ads", label: "Meta · Google", sub: "campañas pagas" },
+    thumbs: [],
+    thumbRatio: "16/9",
+    cta: { text: "Disponible próximamente", href: null },
+    ctaSub: "Incorporando · 2025",
+    comingSoon: true,
+    progress: 35
   }
 ];
 ---
@@ -32,23 +79,86 @@ const services = [
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
       {services.map((s) => (
-        <div class="service-card p-8 bg-bg transition-all duration-300 cursor-default rounded-xl md:rounded-none border border-border md:border-0">
-          <!-- Icon -->
-          <div class="text-4xl mb-6 leading-none service-icon" style="color:#149af2; font-size:42px;">{s.icon}</div>
-          <!-- Title -->
-          <h3 class="serif-display text-xl font-normal text-text mb-3">{s.title}</h3>
-          <!-- Description -->
-          <p class="text-sm text-muted leading-relaxed mb-6">{s.description}</p>
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2">
-            {s.tags.map(tag => (
-              <span class="font-mono-custom text-xs px-2 py-1 rounded"
-                    style="background: rgba(44,4,95,0.4); color:#7060a0; border: 1px solid #1a1030;">
-                {tag}
-              </span>
-            ))}
+        <div
+          class="service-card bg-bg transition-all duration-300 cursor-default rounded-xl md:rounded-none border border-border md:border-0 flex flex-col overflow-hidden"
+          style={s.comingSoon ? "opacity:0.72; filter:saturate(0.6);" : ""}
+        >
+          <!-- Accent bar -->
+          <div style={`height:2px; width:100%; background:${s.accentColor};`}></div>
+
+          <div class="p-8 flex flex-col flex-1">
+
+            <!-- Badge comingSoon -->
+            {s.comingSoon && (
+              <div style="display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:10px; padding:3px 10px; border-radius:20px; background:#1a1030; border:0.5px solid #2c045f; color:#7060a0; margin-bottom:1rem; width:fit-content;">
+                <span style="width:6px;height:6px;border-radius:50%;background:#888780;display:inline-block;"></span>
+                Incorporando · 2025
+              </div>
+            )}
+
+            <!-- Icon -->
+            <div class="text-4xl mb-4 leading-none service-icon" style={`color:${s.accentColor}; font-size:42px;`}>{s.icon}</div>
+
+            <!-- Proof block -->
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem;">
+              <span class="serif-display" style={`font-size:22px; color:${s.accentColor};`}>{s.proof.number}</span>
+              <div>
+                <div class="font-mono-custom text-muted" style="font-size:11px;">{s.proof.label}</div>
+                <div class="font-mono-custom text-muted" style="font-size:11px;">{s.proof.sub}</div>
+              </div>
+            </div>
+
+            <!-- Title -->
+            <h3 class="serif-display text-xl font-normal text-text mb-3">{s.title}</h3>
+
+            <!-- Description -->
+            <p class="text-sm text-muted leading-relaxed mb-5">{s.description}</p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-5">
+              {s.tags.map(tag => (
+                <span class="font-mono-custom text-xs px-2 py-1 rounded"
+                      style="background: rgba(44,4,95,0.4); color:#7060a0; border: 1px solid #1a1030;">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <!-- Thumbnails -->
+            {s.thumbs.length > 0 && (
+              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px; padding-bottom:1rem;">
+                {s.thumbs.map((thumb: { src: string | null; alt?: string; label?: string }) => (
+                  thumb.src
+                    ? <img src={thumb.src} alt={thumb.alt} style={`aspect-ratio:${s.thumbRatio}; width:100%; object-fit:cover; border-radius:4px; border:0.5px solid #1a1030;`} loading="lazy" />
+                    : <div style={`aspect-ratio:${s.thumbRatio}; background:#1a1030; border-radius:4px; border:0.5px solid #2c045f; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; color:#7060a0;`}>{thumb.label}</div>
+                ))}
+              </div>
+            )}
+
+            <!-- Barra de progreso (comingSoon) -->
+            {s.comingSoon && (
+              <div style="margin-bottom:1rem;">
+                <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; color:#7060a0; margin-bottom:6px;">
+                  <span>Formación en curso</span>
+                  <span>{s.progress}%</span>
+                </div>
+                <div style="height:3px; background:#1a1030; border-radius:2px;">
+                  <div style={`height:3px; border-radius:2px; background:#888780; width:${s.progress}%;`}></div>
+                </div>
+              </div>
+            )}
+
+            <!-- Footer CTA -->
+            <div style="padding:1rem 0 0; border-top:1px solid #1a1030; display:flex; align-items:center; justify-content:space-between; margin-top:auto;">
+              {s.cta.href
+                ? <a href={s.cta.href} class="font-mono-custom" style="font-size:11px; color:#149af2; text-decoration:none;">{s.cta.text}</a>
+                : <span class="font-mono-custom text-muted" style="font-size:11px;">{s.cta.text}</span>
+              }
+              <span class="font-mono-custom text-muted" style="font-size:11px;">{s.ctaSub}</span>
+            </div>
+
           </div>
         </div>
       ))}
