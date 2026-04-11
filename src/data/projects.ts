@@ -182,16 +182,16 @@ export const projects: Project[] = [
     title: "Café Doncar",
     subtitle: "Web de Pedidos Online",
     description: "SPA para explorar menú, armar pedidos personalizados y enviarlos por WhatsApp. Pizzas y hamburguesas 100% caseras.",
-    technologies: ["HTML5","CSS","React","JSX","JavaScript","Tailwind CSS","WhatsApp API"],
+    technologies: ["Astro", "React", "Vite", "Tailwind CSS", "SCSS", "WhatsApp API"],
     category: "food",
     github: "https://github.com/31pablo05/CafeDoncar",
-    demo: "https://cafe-doncar.vercel.app/",
+    demo: "https://doncar2026.vercel.app/",
     featured: true,
-    status: "Desarrollo",
-    progress: 85,
+    status: "Producción",
+    progress: 100,
     clientType: "Restaurante",
-    video: "/videosProjects/CafeDoncar.mp4",
-    poster: "/svg/posters/posterCafeDoncar.webp"
+    video: "/videosProjects/doncarnuevo.mp4",
+    poster: "/svg/posters/posterdoncarnuevo.PNG"
   },
   {
     id: 12,
@@ -386,7 +386,7 @@ export const projects: Project[] = [
     poster: "/svg/posters/postermarcadeagua.webp"
   },
   {
-    id: 24,
+    id: 20,
     title: "El Impostor",
     subtitle: "PWA · Juego Social Multijugador",
     description: "Juego PWA instalable inspirado en el clásico social deduction. Jugá entre amigos de forma nativa en cualquier dispositivo sin descarga de tienda.",
@@ -395,8 +395,8 @@ export const projects: Project[] = [
     github: "https://github.com/31pablo05/DevCraftImpostor",
     demo: "https://dev-craft-impostor.vercel.app/",
     featured: false,
-    status: "Desarrollo",
-    progress: 55,
+    status: "Producción",
+    progress: 100,
     clientType: "Juegos / PWA",
     video: "/videosProjects/impostorJuego.mp4",
     poster: "/svg/posters/impostordevcraft.png"
@@ -422,7 +422,7 @@ export const projects: Project[] = [
     title: "S3A Industrial",
     subtitle: "Web Corporativa · Mantenimiento de Sopladores",
     description: "Sitio web para empresa de Buenos Aires especializada en mantenimiento y reparación de sopladores industriales. Servicios técnicos, catálogo de equipos y contacto comercial.",
-    technologies: ["React", "Vite", "Tailwind CSS", "CSS", "WhatsApp API"],
+    technologies: ["Astro", "React", "Vite", "Tailwind CSS", "CSS", "WhatsApp API"],
     category: "automotive",
     github: "",
     demo: "#",
