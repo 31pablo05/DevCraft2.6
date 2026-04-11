@@ -30,7 +30,7 @@ const certs = [
 ];
 
 const stats = [
-  { value: "23+",  label: "Proyectos" },
+  { value: "26+",  label: "Proyectos" },
   { value: "500+", label: "Horas de código" },
   { value: "10+",  label: "Clientes" },
   { value: "3+",   label: "Años de pasión" },
@@ -53,7 +53,7 @@ const stats = [
 
       <!-- Photo -->
       <div class="flex justify-center md:justify-start">
-        <div id="about-photo-card" class="relative mx-auto md:mx-0" style="max-width:280px; width:100%; transition: transform 0.1s ease;">
+        <div id="about-photo-card" class="relative mx-auto md:mx-0 mb-8 md:mb-0" style="max-width:280px; width:100%; transition: transform 0.1s ease;">
           <!-- glow -->
           <div class="absolute inset-0 rounded-2xl pointer-events-none"
                style="background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(93,3,140,0.4) 0%, rgba(20,154,242,0.1) 60%, transparent 100%); filter: blur(32px); transform: scale(1.1);"
@@ -141,7 +141,7 @@ const stats = [
               <div class="flex justify-between items-baseline mb-1.5">
                 <div>
                   <span class="text-sm font-medium text-text">{sk.name}</span>
-                  <span class="font-mono-custom text-xs ml-2" style="color:#7060a0;">{sk.desc}</span>
+                  <span class="hidden sm:inline font-mono-custom text-xs ml-2" style="color:#7060a0;">{sk.desc}</span>
                 </div>
                 <span class="font-mono-custom text-xs" style="color:#149af2;">{sk.pct}%</span>
               </div>

@@ -5,7 +5,7 @@ export interface Props {
 }
 const {
   title = "Pablo Proboste — DevCraft | Desarrollador Web · Patagonia",
-  description = "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 23 proyectos reales. Trelew, Patagonia 🇦🇷"
+  description = "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷"
 } = Astro.props;
 ---
 <!doctype html>
@@ -82,7 +82,7 @@ const {
           "name": "Pablo Proboste",
           "jobTitle": "Desarrollador Web Frontend",
           "url": "https://devcraftpablo.online",
-          "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 23 proyectos reales. Trelew, Patagonia 🇦🇷",
+          "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Trelew",
@@ -100,7 +100,7 @@ const {
           "@type": "ProfessionalService",
           "name": "DevCraft — Pablo Proboste",
           "url": "https://devcraftpablo.online",
-          "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 23 proyectos reales. Trelew, Patagonia 🇦🇷",
+          "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Trelew",
@@ -114,5 +114,55 @@ const {
   </head>
   <body class="bg-bg text-text antialiased">
     <slot />
+
+    <!-- Scroll to top button -->
+    <button
+      id="scroll-top-btn"
+      aria-label="Volver arriba"
+      style="
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 999;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3d1495, #149af2);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(12px) scale(0.85);
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        pointer-events: none;
+        box-shadow: 0 4px 20px rgba(61,20,149,0.5), 0 0 0 1px rgba(20,154,242,0.2);
+      "
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+
+    <script>
+      const scrollBtn = document.getElementById('scroll-top-btn');
+      if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.transform = 'translateY(0) scale(1)';
+            scrollBtn.style.pointerEvents = 'auto';
+          } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.transform = 'translateY(12px) scale(0.85)';
+            scrollBtn.style.pointerEvents = 'none';
+          }
+        }, { passive: true });
+        scrollBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
   </body>
 </html>

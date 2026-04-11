@@ -143,7 +143,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Herramienta Creativa",
     video: "/videosProjects/TrueColor.mp4",
-    poster: "/svg/posters/posterTrueColor .webp"
+    poster: "/svg/posters/posterTrueColor.webp"
   },
   {
     id: 9,

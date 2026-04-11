@@ -15,8 +15,8 @@ const services = [
   {
     icon: "⊕",
     title: "Gestión de RRSS",
-    description: "Estrategia y gestión mensual de redes sociales: Instagram, Facebook y más. Contenido consistente con tu marca.",
-    tags: ["Instagram", "Facebook", "Estrategia", "Copywriting"]
+    description: "Estrategia, diseño y gestión mensual de redes sociales. Posts, Reels, Stories y calendario editorial con identidad de marca consistente.",
+    tags: ["Instagram", "TikTok", "Reels", "Stories", "Copywriting", "Canva Pro"]
   }
 ];
 ---
@@ -32,9 +32,9 @@ const services = [
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
       {services.map((s) => (
-        <div class="service-card p-8 bg-bg transition-all duration-300 cursor-default">
+        <div class="service-card p-8 bg-bg transition-all duration-300 cursor-default rounded-xl md:rounded-none border border-border md:border-0">
           <!-- Icon -->
           <div class="text-4xl mb-6 leading-none service-icon" style="color:#149af2; font-size:42px;">{s.icon}</div>
           <!-- Title -->

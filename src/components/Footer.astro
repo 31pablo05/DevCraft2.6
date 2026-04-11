@@ -25,7 +25,7 @@ const year = new Date().getFullYear();
 
       <!-- Center: nav + tagline -->
       <div class="flex flex-col items-center gap-3">
-        <nav class="flex gap-5">
+        <nav class="flex flex-wrap justify-center gap-x-4 gap-y-2">
           <a href="#services" class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Servicios</a>
           <a href="#about"    class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Sobre mí</a>
           <a href="#projects" class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Proyectos</a>
@@ -35,11 +35,19 @@ const year = new Date().getFullYear();
         <p class="serif-display italic text-sm" style="color:#7060a0;">Código con propósito.</p>
       </div>
 
-      <!-- Right: stack + location -->
-      <div class="flex flex-col items-center md:items-end gap-1">
+      <!-- Right: stack + location + social -->
+      <div class="flex flex-col items-center md:items-end gap-2">
         <p class="font-mono-custom text-xs" style="background: linear-gradient(90deg, #5d038c, #3d1495, #2a7de5, #149af2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
           Astro · React · Tailwind · Vercel
         </p>
+        <div class="flex gap-4">
+          <a href="https://instagram.com/probostepablo67" target="_blank" rel="noopener noreferrer"
+             class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Instagram</a>
+          <a href="https://linkedin.com/in/pablo-proboste" target="_blank" rel="noopener noreferrer"
+             class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">LinkedIn</a>
+          <a href="https://github.com/31pablo05" target="_blank" rel="noopener noreferrer"
+             class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">GitHub</a>
+        </div>
         <p class="font-mono-custom text-xs" style="color:#7060a0;">Trelew, Patagonia 🇦🇷</p>
       </div>
 
