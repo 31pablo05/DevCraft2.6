@@ -3,8 +3,19 @@ import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard.astro';
 
 const total = projects.length;
-// Featured first, then rest
-const sorted = [...projects].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+// Orden: finalizados (Producción 100%) primero, luego en desarrollo, luego demos
+// Dentro de cada grupo: más reciente primero (id mayor = más reciente)
+const statusPriority = (p: typeof projects[0]) => {
+  if (p.status === 'Producción' && p.progress === 100) return 0;
+  if (p.status === 'Producción') return 1;
+  if (p.status === 'Desarrollo') return 2;
+  return 3;
+};
+const sorted = [...projects].sort((a, b) => {
+  const diff = statusPriority(a) - statusPriority(b);
+  if (diff !== 0) return diff;
+  return b.id - a.id; // más reciente primero dentro del mismo grupo
+});
 
 const statusTabs = [
   { key: 'all',        label: 'Todos' },

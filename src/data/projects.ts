@@ -429,7 +429,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Producción",
     progress: 100,
-    clientType: "Industrial"
+    clientType: "Industrial",
+    video: "/videosProjects/S3AIndustrialweb.mp4",
+    poster: "/svg/posters/posters3aindustrial.PNG"
   }
 ];
 
