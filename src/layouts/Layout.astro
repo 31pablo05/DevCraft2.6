@@ -2,10 +2,14 @@
 export interface Props {
   title?: string;
   description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
 }
 const {
   title = "Pablo Proboste — DevCraft | Desarrollador Web · Patagonia",
-  description = "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷"
+  description = "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
+  canonicalURL = Astro.url.href,
+  ogImage = "/og-image.jpg",
 } = Astro.props;
 ---
 <!doctype html>
@@ -20,7 +24,7 @@ const {
     <meta name="language" content="Spanish" />
     <meta name="geo.region" content="AR-U" />
     <meta name="geo.placename" content="Trelew, Chubut, Argentina" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0a0612" />
     <meta name="keywords" content="desarrollador web argentina, desarrollador frontend trelew, react developer argentina, astro developer, tailwind css argentina, pablo proboste, devcraft, portfolio desarrollador web patagonia, programador freelance argentina" />
 
     <!-- Open Graph -->
@@ -28,8 +32,8 @@ const {
     <meta property="og:site_name" content="DevCraft — Pablo Proboste" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://devcraftpablo.online" />
-    <meta property="og:image" content="https://devcraftpablo.online/pablo-proboste2.png" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={`https://www.devcraft.com.ar${ogImage}`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Pablo Proboste — Desarrollador Web Frontend, Patagonia Argentina" />
@@ -41,10 +45,11 @@ const {
     <meta name="twitter:creator" content="@probostepablo67" />
     <meta name="twitter:title" content="Pablo Proboste — DevCraft | Desarrollador Web" />
     <meta name="twitter:description" content="Desarrollo web con Astro, React y Tailwind. 23 proyectos reales. Desde Patagonia para el mundo 🇦🇷" />
-    <meta name="twitter:image" content="https://devcraftpablo.online/pablo-proboste2.png" />
+    <meta name="twitter:image" content={`https://www.devcraft.com.ar${ogImage}`} />
 
     <title>{title}</title>
-    <link rel="canonical" href="https://devcraftpablo.online" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="google-site-verification" content="PENDIENTE_REEMPLAZAR" />
 
     <!-- Preload hero image -->
     <link rel="preload" href="/pablo-proboste2.png" as="image" fetchpriority="high" />
@@ -59,6 +64,11 @@ const {
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Global CSS -->
     <style>
@@ -81,7 +91,7 @@ const {
           "@type": "Person",
           "name": "Pablo Proboste",
           "jobTitle": "Desarrollador Web Frontend",
-          "url": "https://devcraftpablo.online",
+          "url": "https://www.devcraft.com.ar",
           "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
           "address": {
             "@type": "PostalAddress",
@@ -99,7 +109,7 @@ const {
         {
           "@type": "ProfessionalService",
           "name": "DevCraft — Pablo Proboste",
-          "url": "https://devcraftpablo.online",
+          "url": "https://www.devcraft.com.ar",
           "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
           "address": {
             "@type": "PostalAddress",
@@ -111,6 +121,18 @@ const {
       ]
     }
     </script>
+
+    {import.meta.env.PUBLIC_GA_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_ID}`}></script>
+        <script set:html={`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${import.meta.env.PUBLIC_GA_ID}', { page_path: window.location.pathname });
+        `}></script>
+      </>
+    )}
   </head>
   <body class="bg-bg text-text antialiased">
     <slot />
