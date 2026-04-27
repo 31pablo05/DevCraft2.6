@@ -1,4 +1,46 @@
 ---
+const workflow = [
+  {
+    name: "GitHub",
+    color: "#ffffff",
+    svgPath: `<svg width="32" height="32" viewBox="0 0 256 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46 6.397 1.172 8.738-2.775 8.738-6.158 0-3.052-.12-13.135-.174-23.83-35.61 7.742-43.124-15.103-43.124-15.103-5.823-14.795-14.213-18.73-14.213-18.73-11.613-7.944.876-7.78.876-7.78 12.853.902 19.621 13.19 19.621 13.19 11.417 19.568 29.945 13.911 37.249 10.64 1.149-8.272 4.466-13.92 8.127-17.116-28.431-3.236-58.318-14.212-58.318-63.258 0-13.975 5-25.394 13.188-34.358-1.329-3.224-5.71-16.242 1.24-33.874 0 0 10.749-3.44 35.21 13.121 10.21-2.836 21.16-4.258 32.038-4.307 10.878.049 21.837 1.47 32.066 4.307 24.431-16.56 35.165-13.12 35.165-13.12 6.967 17.63 2.584 30.65 1.255 33.873 8.207 8.964 13.173 20.383 13.173 34.358 0 49.163-29.944 59.988-58.447 63.157 4.591 3.972 8.682 11.762 8.682 23.704 0 17.126-.148 30.91-.148 35.126 0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.001 256 57.307 198.691 0 128.001 0Z" fill="#ffffff"/>
+    </svg>`
+  },
+  {
+    name: "Canva Pro",
+    color: "#00C4CC",
+    svgPath: `<svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="256" height="256" rx="42" fill="#00C4CC"/>
+      <path d="M128 36c-50.81 0-92 41.19-92 92s41.19 92 92 92c27.38 0 52.01-11.96 69.19-31.02-3.47 1.03-7.14 1.58-10.94 1.58-21.54 0-38.97-17.43-38.97-38.97 0-8.34 2.63-16.08 7.1-22.4C151.53 126.33 148 118.57 148 110c0-11.05 8.95-20 20-20 5.76 0 10.96 2.44 14.67 6.34C175.74 76.47 153.76 60 128 60c-37.56 0-68 30.44-68 68s30.44 68 68 68c13.6 0 26.28-3.99 36.96-10.86C152.65 193.22 141.1 196 128 196c-37.56 0-68-30.44-68-68s30.44-68 68-68c20.73 0 39.35 9.28 52.12 24.01A19.9 19.9 0 0 0 168 90c-11.05 0-20 8.95-20 20 0 5.76 2.44 10.96 6.34 14.67-4.55 7.13-7.34 15.56-7.34 24.65 0 25.41 20.59 46 46 46 5.35 0 10.49-.92 15.28-2.58C222.19 175.86 220 152.19 220 128c0-50.81-41.19-92-92-92Z" fill="white"/>
+    </svg>`
+  },
+  {
+    name: "CapCut",
+    color: "#000000",
+    svgPath: `<svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="256" height="256" rx="42" fill="#1a1a1a"/>
+      <path d="M128 48C83.82 48 48 83.82 48 128s35.82 80 80 80 80-35.82 80-80-35.82-80-80-80Zm-16 108V100l56 28-56 28Z" fill="white"/>
+    </svg>`
+  },
+  {
+    name: "Copilot",
+    color: "#0078D4",
+    svgPath: `<svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="256" height="256" rx="42" fill="#0078D4"/>
+      <path d="M128 44c-8 0-15.5 3.5-20.5 9.5L64 104h24l24-28v112l-24-28H64l43.5 50.5C112.5 214.5 120 218 128 218s15.5-3.5 20.5-9.5L192 158h-24l-24 28V74l24 28h24L148.5 53.5C143.5 47.5 136 44 128 44Z" fill="white"/>
+    </svg>`
+  },
+  {
+    name: "Claude",
+    color: "#D97757",
+    svgPath: `<svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="256" height="256" rx="42" fill="#D97757"/>
+      <path d="M155.3 58H100.7C77.1 58 58 77.1 58 100.7v54.6C58 178.9 77.1 198 100.7 198h54.6c23.6 0 42.7-19.1 42.7-42.7v-54.6C198 77.1 178.9 58 155.3 58Zm-4.1 94.3-23.2-40.2-23.2 40.2H88.5l35.5-61.4 35.5 61.4h-8.3Z" fill="white"/>
+    </svg>`
+  }
+];
+
 const stack = [
   {
     name: "Astro",
@@ -93,6 +135,32 @@ const stack = [
           <span
             class="stack-item-name font-mono-custom text-xs text-muted transition-colors duration-300 group-hover/item:text-[#feffff]"
           >{item.name}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Separador flujo de trabajo & IA -->
+    <div class="mt-12 mb-6 reveal" style="height:1px; background:#1a1030; position:relative;">
+      <span class="font-mono-custom text-xs text-muted uppercase tracking-widest"
+            style="position:absolute; top:-9px; left:0; background:#0a0612; padding-right:12px;">
+        // flujo de trabajo & ia
+      </span>
+    </div>
+
+    <!-- Grid workflow -->
+    <div class="grid grid-cols-4 md:grid-cols-5 gap-px reveal" style="background:#1a1030;">
+      {workflow.map(item => (
+        <div class="stack-item group/item bg-surface p-6 flex flex-col items-center gap-3 cursor-default transition-all duration-300 hover:bg-[#0f0a1f]">
+          <div
+            class="stack-icon-wrap transition-transform duration-300 group-hover/item:scale-110"
+            style={`filter: drop-shadow(0 0 0px ${item.color});`}
+            onmouseover={`this.style.filter='drop-shadow(0 0 8px ${item.color})'`}
+            onmouseout={`this.style.filter='drop-shadow(0 0 0px ${item.color})'`}
+            set:html={item.svgPath}
+          />
+          <span class="stack-item-name font-mono-custom text-xs text-muted transition-colors duration-300 group-hover/item:text-[#feffff]">
+            {item.name}
+          </span>
         </div>
       ))}
     </div>
