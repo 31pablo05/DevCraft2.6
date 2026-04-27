@@ -7,7 +7,7 @@ export interface Props {
 }
 const {
   title = "Pablo Proboste — DevCraft | Desarrollador Web · Patagonia",
-  description = "Desarrollador web freelance en Argentina · Pablo Proboste (DevCraft). Sitios web con Astro, React y Tailwind, diseño gráfico y gestión de redes sociales. 26 proyectos reales · Trelew, Patagonia 🇦🇷",
+  description = "Portfolio de Pablo Proboste — DevCraft. Desarrollo web con Astro y React, edición de Reels e historias para redes sociales, diseño gráfico y gestión de Instagram/TikTok. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
   canonicalURL = Astro.url.href,
   ogImage = "/og-image.jpg",
 } = Astro.props;
@@ -52,24 +52,18 @@ const {
 
     <title>{title}</title>
     <link rel="canonical" href={canonicalURL} />
+    <!-- NOTA: Ir a https://search.google.com/search-console -->
+    <!-- Agregar la propiedad https://www.devcraft.com.ar y obtener el código real -->
+    <!-- Luego reemplazar INSERTAR_CODIGO_REAL_AQUI con ese código -->
     <meta name="google-site-verification" content="WjThKUdjXYUAyd_dIrksu-ggVJkC8iuc_ahZvP5nePs" />
 
-    <!-- Google Fonts (non-blocking) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/logomejorado.ico" />
@@ -129,52 +123,13 @@ const {
           "@type": "ProfessionalService",
           "name": "DevCraft — Pablo Proboste",
           "url": "https://www.devcraft.com.ar",
-          "description": "Desarrollador web freelance en Argentina. Sitios web profesionales con Astro, React y Tailwind. Diseño gráfico y gestión de redes sociales. 26 proyectos reales desde Trelew, Patagonia.",
+          "description": "Portfolio profesional de Pablo Proboste (DevCraft). Desarrollo web con Astro, React y Tailwind. 26 proyectos reales. Trelew, Patagonia 🇦🇷",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Trelew",
             "addressRegion": "Chubut",
             "addressCountry": "AR"
-          },
-          "areaServed": ["Argentina", "Latinoamérica"],
-          "serviceType": ["Desarrollo Web", "Diseño Gráfico", "Gestión de Redes Sociales", "Edición de Video"]
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "¿Cuánto cuesta desarrollar un sitio web profesional?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El costo depende del alcance del proyecto. Me especializo en landing pages, sitios institucionales y e-commerce con Astro y React. Contactame para una cotización gratuita y personalizada."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Trabajás de forma remota para toda Argentina?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sí, trabajo 100% remoto desde Trelew, Patagonia, para clientes en todo el país y Latinoamérica. Todo el proceso de diseño, desarrollo y entrega se realiza de manera online."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Qué tecnologías usás para desarrollar sitios web?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Trabajo principalmente con Astro, React, Tailwind CSS y Vite. Deployeo en Vercel para máxima velocidad y disponibilidad. Todos mis sitios son mobile-first, accesibles y optimizados para SEO."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuánto tiempo lleva el desarrollo de un sitio web?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Una landing page profesional tarda entre 1 y 2 semanas. Proyectos más complejos como e-commerce o aplicaciones web pueden requerir de 3 a 6 semanas según los requerimientos."
-              }
-            }
-          ]
+          }
         }
       ]
     }
