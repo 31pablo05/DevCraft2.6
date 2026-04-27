@@ -191,7 +191,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Restaurante",
     video: "/videosProjects/doncarnuevo.mp4",
-    poster: "/svg/posters/posterdoncarnuevo.PNG"
+    poster: "/svg/posters/posterdoncarnuevo.png"
   },
   {
     id: 12,
@@ -431,7 +431,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Industrial",
     video: "/videosProjects/S3AIndustrialweb.mp4",
-    poster: "/svg/posters/posters3aindustrialweb.PNG"
+    poster: "/svg/posters/posters3aindustrialweb.png"
   }
 ];
 
