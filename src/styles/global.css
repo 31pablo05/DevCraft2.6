@@ -115,19 +115,19 @@ body::before {
     background: #5d038c;
   }
   .cursor-ring {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(20,154,242,.3);
+    width: 20px; height: 20px;
+    border: 1.5px solid rgba(20,154,242,.5);
     border-radius: 50%;
     position: fixed;
     top: 0; left: 0;
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
-    transition: width .3s, height .3s, border-color .3s;
+    transition: width .15s, height .15s, border-color .15s;
   }
   .cursor-ring.hovering {
-    width: 52px; height: 52px;
-    border-color: rgba(20,154,242,.7);
+    width: 30px; height: 30px;
+    border-color: rgba(20,154,242,.8);
   }
 }
 

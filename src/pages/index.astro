@@ -50,30 +50,18 @@ import '../styles/global.css';
     const cursor     = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursor-ring');
 
-    let mouseX = 0, mouseY = 0;
-    let ringX  = 0, ringY  = 0;
-
     document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      const x = e.clientX;
+      const y = e.clientY;
       if (cursor) {
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top  = mouseY + 'px';
+        cursor.style.left = x + 'px';
+        cursor.style.top  = y + 'px';
+      }
+      if (cursorRing) {
+        cursorRing.style.left = x + 'px';
+        cursorRing.style.top  = y + 'px';
       }
     }, { passive: true });
-
-    // Lerp ring toward cursor
-    function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
-    function animateRing() {
-      ringX = lerp(ringX, mouseX, 0.12);
-      ringY = lerp(ringY, mouseY, 0.12);
-      if (cursorRing) {
-        cursorRing.style.left = ringX + 'px';
-        cursorRing.style.top  = ringY + 'px';
-      }
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
 
     // Hover effect
     const hoverTargets = document.querySelectorAll('a, button, .pcard, .service-card, .process-step, .stack-item');
