@@ -8,7 +8,7 @@ export interface Props {
 const {
   title = "Pablo Proboste — DevCraft | Desarrollo Web, Diseño Gráfico & Reels · Patagonia Argentina",
   description = "Desarrollador web freelance en Argentina · Pablo Proboste (DevCraft). Sitios web con Astro y React, diseño gráfico, edición de Reels e historias para Instagram y TikTok, gestión de redes sociales y publicidad digital. 26 proyectos reales · Trelew, Patagonia 🇦🇷",
-  canonicalURL = Astro.url.href,
+  canonicalURL = `https://www.devcraft.com.ar${Astro.url.pathname}`,
   ogImage = "/og-image.jpg",
 } = Astro.props;
 ---

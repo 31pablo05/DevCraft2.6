@@ -42,5 +42,13 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "dev-craft2-6.vercel.app" }],
+      "destination": "https://www.devcraft.com.ar/$1",
+      "permanent": true
+    }
   ]
 }
