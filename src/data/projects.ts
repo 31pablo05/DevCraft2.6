@@ -31,7 +31,7 @@ export const projects: Project[] = [
     progress: 20,
     clientType: "Educativo",
     video: "/videosProjects/MaestraPatagonica.mp4",
-    poster: "/svg/posters/posterMaestraPatagonica.webp"
+    poster: "/posters/posterMaestraPatagonica.webp"
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Bienestar",
     video: "/videosProjects/pichiRayen.mp4",
-    poster: "/svg/posters/posterPichiRayen.webp"
+    poster: "/posters/posterPichiRayen.webp"
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     progress: 95,
     clientType: "Salud",
     video: "/videosProjects/WebAppNutricionista.mp4",
-    poster: "/svg/posters/posterNutricionista.webp"
+    poster: "/posters/posterNutricionista.webp"
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Restaurante",
     video: "/videosProjects/WebAppPrepizzas.mp4",
-    poster: "/svg/posters/posterAppPrepizzas.webp"
+    poster: "/posters/posterAppPrepizzas.webp"
   },
   {
     id: 5,
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Creativo",
     video: "/videosProjects/FedeForquera.mp4",
-    poster: "/svg/posters/posterFilmaker.webp"
+    poster: "/posters/posterFilmaker.webp"
   },
   {
     id: 6,
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Salud",
     video: "/videosProjects/FranciscoTorresOsteopatia.mp4",
-    poster: "/svg/posters/posterOsteopatia.webp"
+    poster: "/posters/posterOsteopatia.webp"
 
   },
   {
@@ -127,7 +127,7 @@ export const projects: Project[] = [
     status: "Desarrollo",
     progress: 65,
     clientType: "Productividad",
-    poster: "/svg/posters/TaDi-Captura.webp"
+    poster: "/posters/TaDi-Captura.webp"
   },
   {
     id: 8,
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Herramienta Creativa",
     video: "/videosProjects/TrueColor.mp4",
-    poster: "/svg/posters/posterTrueColor.webp"
+    poster: "/posters/posterTrueColor.webp"
   },
   {
     id: 9,
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Belleza",
     video: "/videosProjects/MyBeautyStudy.mp4",
-    poster: "/svg/posters/posterMYBEAUTYSTUDY.webp"
+    poster: "/posters/posterMYBEAUTYSTUDY.webp"
   },
   {
     id: 10,
@@ -175,7 +175,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Educativo",
       video: "/videosProjects/MicropigmentadoraLanding.mp4",
-      poster: "/svg/posters/posterMicropigmentadora.webp"  
+      poster: "/posters/posterMicropigmentadora.webp"  
   },
   {
     id: 11,
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Restaurante",
     video: "/videosProjects/doncarnuevo.mp4",
-    poster: "/svg/posters/posterdoncarnuevo.png"
+    poster: "/posters/posterdoncarnuevo.png"
   },
   {
     id: 12,
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     progress: 75,
     clientType: "Retail",
     video: "/videosProjects/OZZcycling.mp4",
-    poster: "/svg/posters/posterOZZ.webp"
+    poster: "/posters/posterOZZ.webp"
   },
   {
     id: 13,
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     progress: 80,
     clientType: "Blanquería",
     video: "/videosProjects/KuyenWeb.mp4",
-    poster: "/svg/posters/posterKuyen.webp"
+    poster: "/posters/posterKuyen.webp"
   },
   {
     id: 14,
@@ -239,7 +239,7 @@ export const projects: Project[] = [
     progress: 70,
     clientType: "Taller Mecánico",
     video: "/videosProjects/MecanicaLolo.mp4",  
-    poster: "/svg/posters/posterMecanicaLolo.webp"
+    poster: "/posters/posterMecanicaLolo.webp"
   },
   {
     id: 15,
@@ -255,7 +255,7 @@ export const projects: Project[] = [
     progress: 75,
     clientType: "Ferreterías",
     video: "/videosProjects/HerramientaBuloneria.mp4",
-    poster: "/svg/posters/posterBuloneria.webp"
+    poster: "/posters/posterBuloneria.webp"
   },
   {
     id: 16,
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Gastronomía",
     video: "/videosProjects/CursoPasteleria.mp4",
-    poster: "/svg/posters/posterrecetariodemo.webp"
+    poster: "/posters/posterrecetariodemo.webp"
   },
   {
     id: 17,
@@ -287,7 +287,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Vivero",
     video: "/videosProjects/ViveroPatagonia.mp4",
-    poster: "/svg/posters/posterviverodemo.webp"
+    poster: "/posters/posterviverodemo.webp"
   },
   {
     id: 18,
@@ -303,7 +303,7 @@ export const projects: Project[] = [
     progress: 60,
     clientType: "Juegos / PWA",
     video: "/videosProjects/TetrisWeb.mp4",
-    poster: "/svg/posters/posterTetris.webp"
+    poster: "/posters/posterTetris.webp"
   },
   {
     id: 19,
@@ -319,7 +319,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Educación",
     video: "/videosProjects/CursoFotografia.mp4",
-    poster: "/svg/posters/postercursofotos.webp"
+    poster: "/posters/postercursofotos.webp"
   },
   {
     id: 20,
@@ -335,7 +335,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Educación",
     video: "/videosProjects/CursoPasteleria.mp4",   
-    poster: "/svg/posters/postercursopasteleria.webp"
+    poster: "/posters/postercursopasteleria.webp"
   },
   {
     id: 21,
@@ -351,7 +351,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Coaching",
     video: "/videosProjects/CoachingDeRaiz.mp4",
-    poster: "/svg/posters/postercoachingderaiz.webp"
+    poster: "/posters/postercoachingderaiz.webp"
   },
   {
     id: 22,
@@ -367,7 +367,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Diseño Gráfico",
     video: "/videosProjects/BaliDesign.mp4",
-    poster: "/svg/posters/balidesignposter.webp"
+    poster: "/posters/balidesignposter.webp"
   },
   {
     id: 23,
@@ -383,7 +383,7 @@ export const projects: Project[] = [
     progress: 60,
     clientType: "Herramienta Web",
     video: "/videosProjects/GeneradorMarcaAgua.mp4",
-    poster: "/svg/posters/postermarcadeagua.webp"
+    poster: "/posters/postermarcadeagua.webp"
   },
   {
     id: 20,
@@ -399,7 +399,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Juegos / PWA",
     video: "/videosProjects/impostorJuego.mp4",
-    poster: "/svg/posters/impostordevcraft.png"
+    poster: "/posters/impostordevcraft.png"
   },
   {
     id: 25,
@@ -415,7 +415,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Consultoría Veterinaria",
     video: "/videosProjects/veteAlACima.mp4",
-    poster: "/svg/posters/posteVetealacima.webp"
+    poster: "/posters/posteVetealacima.webp"
   },
   {
     id: 26,
@@ -431,7 +431,7 @@ export const projects: Project[] = [
     progress: 100,
     clientType: "Industrial",
     video: "/videosProjects/S3AIndustrialweb.mp4",
-    poster: "/svg/posters/posters3aindustrialweb.png"
+    poster: "/posters/posters3aindustrialweb.png"
   }
 ];
 
