@@ -1,6 +1,6 @@
 ---
 ---
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12 flex items-center justify-between overflow-hidden"
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-6 md:px-12 flex items-center justify-between overflow-hidden"
   style="background: rgba(10,6,18,0.55); border-bottom: 1px solid rgba(93,3,140,0.25); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); box-shadow: 0 1px 0 rgba(93,3,140,0.3), 0 4px 32px rgba(93,3,140,0.08), inset 0 0 60px rgba(93,3,140,0.05);">
 
   <!-- Firefly particles -->
@@ -22,11 +22,11 @@
     <div id="nav-logo-wrap" style="transform-style: preserve-3d; will-change: transform; display: inline-block;">
       <img
         id="nav-logo-img"
-        src="/logo.png"
+        src="/assets/logo/logodevcraft.png"
         alt="DevCraft Pablo"
-        width="160"
-        height="52"
-        class="h-13 w-auto object-contain block"
+        width="64"
+        height="64"
+        class="h-16 w-16 object-contain block rounded-full transition-all duration-500"
         style="filter: drop-shadow(0 0 12px rgba(20,154,242,0.55)) drop-shadow(0 0 28px rgba(93,3,140,0.35));"
         loading="eager"
       />
@@ -35,6 +35,7 @@
 
   <!-- Desktop links -->
   <div class="hidden md:flex items-center gap-8 relative z-[1]">
+    <a href="/" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Inicio</a>
     <a href="#services" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Servicios</a>
     <a href="#about"    class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Sobre mí</a>
     <a href="#projects" class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Proyectos</a>
@@ -42,7 +43,7 @@
     <a href="#contact"  class="nav-anchor text-sm text-muted hover:text-text transition-colors duration-200 font-mono-custom tracking-wide">Contacto</a>
     <a
       href="mailto:devcraft.pablo@gmail.com"
-      class="px-4 py-2 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90"
+      class="px-4 py-2 rounded-md text-sm font-medium text-text transition-all duration-200 hover:opacity-90 cta-pulse-btn"
       style="background: linear-gradient(90deg, #3d1495, #2a7de5);"
     >
       Contratame
@@ -76,12 +77,17 @@
 
     <!-- Logo mini -->
     <div class="flex items-center justify-center pt-4 pb-3 px-4" style="border-bottom: 1px solid #1a1030;">
-      <img src="/logo.png" alt="DevCraft" class="h-8 w-auto object-contain"
+      <img src="/assets/logo/logodevcraft.png" alt="DevCraft" class="h-10 w-10 object-contain rounded-full"
            style="filter: drop-shadow(0 0 8px rgba(20,154,242,0.5));" />
     </div>
 
     <!-- Links -->
     <div class="flex flex-col py-2">
+      <a href="/" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
+        <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">00</span>
+        <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Inicio</span>
+        <span class="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color:#149af2;">→</span>
+      </a>
       <a href="#services" class="mob-link flex items-center gap-3 px-4 py-3 transition-all duration-200 group" style="border-bottom: 1px solid #1a1030;">
         <span class="font-mono-custom text-xs w-5" style="color:#3d1495;">01</span>
         <span class="text-sm font-medium text-text group-hover:text-accent transition-colors">Servicios</span>
@@ -222,6 +228,16 @@
     33%       { transform: translateX(20px) translateY(5px) scale(1.05); opacity: 0.85; }
     66%       { transform: translateX(-15px) translateY(-8px) scale(0.95); opacity: 0.9; }
   }
+  @keyframes ctaGlowPulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(61,20,149,0.5), 0 0 16px rgba(42,125,229,0.3); }
+    50%       { box-shadow: 0 0 18px rgba(61,20,149,0.9), 0 0 32px rgba(42,125,229,0.6), 0 0 48px rgba(20,154,242,0.2); }
+  }
+  .cta-pulse-btn {
+    animation: ctaGlowPulse 2.5s ease-in-out infinite;
+  }
+  .cta-pulse-btn:hover {
+    animation: ctaGlowPulse 0.8s ease-in-out infinite;
+  }
 </style>
 
 <script>
@@ -327,5 +343,27 @@
         setTimeout(() => { logoWrap.style.transition = ''; window.scrollTo({ top: 0, behavior: 'smooth' }); }, 150);
       }, 600);
     });
+  }
+
+  /* ── Logo shrink on scroll ── */
+  const navEl   = document.getElementById('main-nav') as HTMLElement | null;
+  const logoImg = document.getElementById('nav-logo-img') as HTMLImageElement | null;
+
+  if (navEl && logoImg) {
+    const onScroll = () => {
+      if (window.scrollY > 60) {
+        logoImg.classList.remove('h-16', 'w-16');
+        logoImg.classList.add('h-10', 'w-10');
+        navEl.classList.remove('py-4');
+        navEl.classList.add('py-2');
+      } else {
+        logoImg.classList.remove('h-10', 'w-10');
+        logoImg.classList.add('h-16', 'w-16');
+        navEl.classList.remove('py-2');
+        navEl.classList.add('py-4');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 </script>

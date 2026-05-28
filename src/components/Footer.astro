@@ -10,12 +10,12 @@ const year = new Date().getFullYear();
       <div class="flex flex-col items-center md:items-start gap-2">
         <a href="/" class="flex items-center" aria-label="DevCraft inicio">
           <img
-            src="/logo.png"
+            src="/assets/logo/logodevcraft.png"
             alt="DevCraft Pablo"
-            width="88"
-            height="28"
-            class="h-7 w-auto object-contain"
-            style="filter: drop-shadow(0 0 6px rgba(20,154,242,0.3));"
+            width="72"
+            height="72"
+            class="object-contain rounded-full"
+            style="height:4.5rem; width:4.5rem; filter: drop-shadow(0 0 10px rgba(20,154,242,0.45)) drop-shadow(0 0 20px rgba(93,3,140,0.3));"
             loading="lazy"
           />
         </a>
@@ -33,7 +33,13 @@ const year = new Date().getFullYear();
           <a href="#process"  class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Proceso</a>
           <a href="#contact"  class="font-mono-custom text-xs text-muted hover:text-text transition-colors duration-200">Contacto</a>
         </nav>
-        <p class="serif-display italic text-sm" style="color:#7060a0;">Código con propósito.</p>
+        <p class="serif-display italic text-sm" style="
+          color: transparent;
+          background: linear-gradient(90deg, #149af2, #5d038c);
+          -webkit-background-clip: text;
+          background-clip: text;
+          opacity: 0.85;
+        ">Código con propósito.</p>
       </div>
 
       <!-- Right: stack + location + social -->
@@ -67,9 +73,9 @@ const year = new Date().getFullYear();
   .footer-glow::before {
     content: '';
     position: absolute;
-    top: 0; left: 5%; right: 5%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #5d038c 20%, #3d1495 50%, #149af2 80%, transparent);
-    box-shadow: 0 0 12px rgba(93,3,140,0.5), 0 0 24px rgba(20,154,242,0.2);
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #5d038c 20%, #149af2 50%, #5d038c 80%, transparent 100%);
+    box-shadow: 0 0 20px rgba(93,3,140,0.7), 0 0 40px rgba(20,154,242,0.3);
   }
 </style>

@@ -82,8 +82,8 @@ const services = [
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-px" style="background: linear-gradient(90deg, #2c045f, #1a1030);">
       {services.map((s) => (
         <div
-          class="service-card bg-bg transition-all duration-300 cursor-default rounded-xl md:rounded-none border border-border md:border-0 flex flex-col overflow-hidden"
-          style={s.comingSoon ? "opacity:0.72; filter:saturate(0.6);" : ""}
+          class="service-card transition-all duration-300 cursor-default rounded-xl md:rounded-none border border-border md:border-0 flex flex-col overflow-hidden"
+          style={s.comingSoon ? "opacity:0.85; filter:saturate(0.75); background: rgba(13,8,32,0.95);" : "background: rgba(13,8,32,0.95);"}
         >
           <!-- Accent bar -->
           <div style={`height:2px; width:100%; background:${s.accentColor};`}></div>

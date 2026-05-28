@@ -2,27 +2,35 @@
 const steps = [
   {
     num: "01",
+    icon: "🔍",
     title: "Descubrimiento",
     description: "Escucho tu proyecto, entiendo tu negocio y defino objetivos claros antes de escribir una sola línea de código."
   },
   {
     num: "02",
+    icon: "🎨",
     title: "Diseño",
     description: "Defino la estructura visual, la paleta, las tipografías y la experiencia de usuario adaptada a tu marca."
   },
   {
     num: "03",
+    icon: "⚡",
     title: "Desarrollo",
     description: "Código limpio, semántico y optimizado. Cada animación, componente y pantalla construido con atención al detalle."
   },
   {
     num: "04",
+    icon: "🚀",
     title: "Lanzamiento",
     description: "Deploy en Vercel, revisión final, ajustes post-lanzamiento y soporte para que todo funcione perfecto."
   }
 ];
 ---
-<section id="process" class="py-24 px-6 md:px-12" style="background: #0a0612;">
+<section id="process" class="py-24 px-6 md:px-12 relative overflow-hidden"
+         style="background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(44,4,95,0.18) 0%, transparent 70%), #070410;">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="background-image: linear-gradient(rgba(93,3,140,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(93,3,140,0.03) 1px, transparent 1px); background-size: 80px 80px;">
+  </div>
   <div class="max-w-7xl mx-auto">
 
     <!-- Header -->
@@ -38,14 +46,18 @@ const steps = [
       <!-- Connector line (desktop only) -->
       <div
         class="hidden md:block absolute pointer-events-none"
-        style="top: 72px; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, #3d1495, #149af2); opacity: 0.7; z-index: 1; box-shadow: 0 0 8px rgba(20,154,242,0.4);"
+        style="top: 72px; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, transparent, #5d038c 15%, #3d1495 40%, #149af2 75%, transparent); opacity: 1; z-index: 1; box-shadow: 0 0 12px rgba(20,154,242,0.6), 0 0 28px rgba(93,3,140,0.3);"
         aria-hidden="true"
       ></div>
 
       {steps.map((step, i) => (
-        <div class="process-step relative bg-surface p-8 group cursor-default reveal-step" data-delay={i * 120}>
+        <div class="process-step relative p-8 group cursor-default reveal-step" data-delay={i * 120}
+             style="background: rgba(13,8,32,0.9); border-bottom: 1px solid rgba(93,3,140,0.15);">
           <!-- Small mono number above the big one -->
-          <p class="font-mono-custom text-xs mb-1 select-none" style="color:#3d1495;">{step.num}</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-base" aria-hidden="true">{step.icon}</span>
+            <p class="font-mono-custom text-xs select-none" style="color:#3d1495;">{step.num}</p>
+          </div>
           <!-- Big number -->
           <p
             class="process-num serif-display italic font-normal leading-none mb-4 select-none transition-all duration-300"
@@ -81,7 +93,8 @@ const steps = [
   }
   .process-step:hover {
     transform: translateY(-4px) rotateX(2deg);
-    background: #0a0612;
+    background: rgba(20,10,48,0.95);
+    box-shadow: 0 -2px 0 rgba(20,154,242,0.4) inset;
   }
   .process-step:hover .serif-display.italic {
     background: linear-gradient(135deg, #5d038c, #3d1495, #149af2);
